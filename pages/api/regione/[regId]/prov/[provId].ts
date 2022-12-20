@@ -4,9 +4,7 @@ import { provInt } from "../../../../../types/types";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const { provId } = req.query;
-  /* const idProv = provsItaly.forEach((provReg) =>
-    provReg.prov.find((prov) => prov.id === +provId!)
-  ); */
+
   const idProv = provsItaly.map((provReg) =>
     provReg.prov.find((prov) => prov.id === +provId!)
   );
