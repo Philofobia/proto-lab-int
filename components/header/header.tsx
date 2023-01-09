@@ -50,12 +50,6 @@ const Header = ({ navigationData }: { navigationData: RegioneInt[] }) => {
         >
           Home
         </Link>
-        <Link
-          href="/"
-          className="font-title antialiasing text-xl350 hover:text-primary"
-        >
-          Favourites
-        </Link>
       </div>
       <div className="navbar-center">
         <h2 className="font-title antialiasing text-2xl">TRAVEL TREND</h2>

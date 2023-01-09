@@ -4,11 +4,16 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main>
-      <h1 className="text-center text-title">I AM HOME</h1>
+    <main className="mt-[80px]">
+      <h1 className="text-center text-title">TRAVEL TREND</h1>
+      <h2 className="text-center text-title">Search where everyone is going</h2>
       <hr />
-      <Link className="btn btn-blue" href="/regione/1">
+      <p></p>
+      <Link className="btn btn-blue" href="/1">
         Sardegna
+      </Link>
+      <Link className="btn btn-blue" href="/2">
+        Sicilia
       </Link>
     </main>
   );
