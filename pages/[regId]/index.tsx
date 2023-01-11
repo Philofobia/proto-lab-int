@@ -6,13 +6,41 @@ import { provInt, RegioneInt } from "../../types/types";
 
 export default function Region({ regione }: { regione: RegioneInt }) {
   return (
-    <main className="mt-[80px]">
-      <h1 className="text-center text-title">{regione.nome}</h1>
-      {regione.provincie.map((prov) => (
-        <Link href={`${regione.id}/prov/${prov.id}`} className="btn mx-2">
-          {prov.nome}
-        </Link>
-      ))}
+    <main className="mt-[80px] mb-[50px]">
+      <h1 className="text-center text-title text-4xl">
+        <strong>{regione.nome}</strong>
+      </h1>
+      <hr className="my-5" />
+      <section className="mx-2 text-justify">
+        {regione.descrizione.map((descr, index) => (
+          <div className="my-5">
+            <figure>
+              <img
+                src={regione.immagini[index]}
+                alt={`foto ${regione.nome}`}
+              />
+            </figure>
+            <p className="my-4">{descr}</p>
+          </div>
+        ))}
+      </section>
+      <section className="mx-2 flex flex-wrap gap-5">
+        {regione.provincie.map((prov) => (
+          <div className="card w-96 bg-base-100 shadow-xl border">
+            <div className="card-body text-justify">
+              <Link href={`${regione.id}/prov/${prov.id}`} className="btn mx-2">
+                {prov.nome}
+              </Link>
+            </div>
+            <figure>
+              <img
+                src={`${prov.img}`}
+                alt={`foto ${prov.nome}`}
+              />
+            </figure>
+          </div>
+        ))}
+      </section>
     </main>
   );
 }
@@ -35,12 +63,14 @@ export const getStaticProps: GetStaticProps = async (
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const response = await fetch("https://express-api-labint.onrender.com/api/v1/regions/");
+  const response = await fetch(
+    "https://express-api-labint.onrender.com/api/v1/regions/"
+  );
   const unclearedData = await response.json();
   const data: RegioneInt[] = unclearedData.data.regions;
   const paths = data.map((regione) => ({
     params: { regId: `${regione.id}` },
-  })); 
+  }));
 
   return { paths, fallback: false };
 };

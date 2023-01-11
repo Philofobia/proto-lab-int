@@ -42,9 +42,11 @@ export default function App({
 }
 
 App.getInitialProps = async (appContext: AppContext) => {
-  const response = await fetch("http://localhost:3000/api/regione");
-  const data: RegioneInt[] = await response.json();
+  const response = await fetch("https://express-api-labint.onrender.com/api/v1/regions");
+  const unclearedData = await response.json();
+  const data: RegioneInt[] = unclearedData.data.region;
   const appProps = await NextApp.getInitialProps(appContext);
   const navigation: RegioneInt[] = data;
+  console.log(navigation)
   return { ...appProps, navigation };
 };

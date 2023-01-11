@@ -7,7 +7,7 @@ export interface RegioneInt {
   id: number;
   descrizione: string[];
   immagini: string[];
-  provincie: { nome: string; id: number }[];
+  provincie: { nome: string; id: number, img: string }[];
 }
 
 export interface provsItalyInt {

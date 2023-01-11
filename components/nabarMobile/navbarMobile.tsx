@@ -16,7 +16,7 @@ const NavbarMobile = ({ navigationData }: { navigationData: RegioneInt[] }) => {
         </li>
         {navigationData.map((regione) => (
           <li>
-            <Link href={`/regione/${regione.id}`} className="btn btn-ghost w-full text-xl" onClick={switchNavbar}>
+            <Link href={`/${regione.id}`} className="btn btn-ghost w-full text-xl" onClick={switchNavbar}>
               <em>{regione.nome}</em>
             </Link>
             <ul>
