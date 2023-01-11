@@ -14,7 +14,7 @@ export default function Prov({ prov }: { prov: provInt }) {
         <figure>
           <img src={`${prov.img}`} alt={`foto ${prov.nome}`} />
         </figure>
-        {prov.descrizione.map((descr, index) => (
+        {prov.descrizione.map((descr) => (
           <div className="my-5">
             <p className="my-4">{descr}</p>
           </div>
