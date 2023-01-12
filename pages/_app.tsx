@@ -47,6 +47,5 @@ App.getInitialProps = async (appContext: AppContext) => {
   const data: RegioneInt[] = unclearedData.data.regions;
   const appProps = await NextApp.getInitialProps(appContext);
   const navigation: RegioneInt[] = data;
-  console.log(data)
   return { ...appProps, navigation };
 };

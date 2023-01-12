@@ -58,7 +58,7 @@ export default function Home() {
         </div>
         <div className="card w-96 bg-base-100 shadow-xl border">
           <div className="card-body text-justify">
-            <Link className="btn btn-blue" href="/2">
+            <Link className="btn btn-blue card-title" href="/2">
               Sicilia
             </Link>
             <p>

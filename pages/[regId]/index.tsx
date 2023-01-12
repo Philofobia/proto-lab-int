@@ -2,7 +2,8 @@ import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { ReactElement } from "react";
-import { provInt, RegioneInt } from "../../types/types";
+import { RegioneInt } from "../../types/types";
+import ChartBar from "../../components/charts/chartBar";
 
 export default function Region({ regione }: { regione: RegioneInt }) {
   return (
@@ -15,14 +16,19 @@ export default function Region({ regione }: { regione: RegioneInt }) {
         {regione.descrizione.map((descr, index) => (
           <div className="my-5">
             <figure>
-              <img
-                src={regione.immagini[index]}
-                alt={`foto ${regione.nome}`}
-              />
+              <img src={regione.immagini[index]} alt={`foto ${regione.nome}`} />
             </figure>
             <p className="my-4">{descr}</p>
           </div>
         ))}
+      </section>
+      <section className="mx-2 my-5">
+        <h4 className="text-center text-title text-2xl">Italiani</h4>
+        <ChartBar regione={regione} provenienza="ITA" />
+        <h4 className="text-center text-title text-2xl">Stranieri</h4>
+        <ChartBar regione={regione} provenienza="OUT" />
+        <h4 className="text-center text-title text-2xl">Somma totale</h4>
+        <ChartBar regione={regione} provenienza="ALL" />
       </section>
       <section className="mx-2 flex flex-wrap gap-5">
         {regione.provincie.map((prov) => (
@@ -33,10 +39,7 @@ export default function Region({ regione }: { regione: RegioneInt }) {
               </Link>
             </div>
             <figure>
-              <img
-                src={`${prov.img}`}
-                alt={`foto ${prov.nome}`}
-              />
+              <img src={`${prov.img}`} alt={`foto ${prov.nome}`} />
             </figure>
           </div>
         ))}

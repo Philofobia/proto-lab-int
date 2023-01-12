@@ -7,7 +7,14 @@ export interface RegioneInt {
   id: number;
   descrizione: string[];
   immagini: string[];
-  provincie: { nome: string; id: number, img: string }[];
+  provincie: { nome: string; id: number; img: string }[];
+  dataPres: {
+    indicatori: string;
+    alloggio: string;
+    paeseRes: string;
+    value: number;
+    anno: number;
+  }[];
 }
 
 export interface provsItalyInt {

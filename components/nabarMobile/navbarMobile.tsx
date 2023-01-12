@@ -33,7 +33,7 @@ const NavbarMobile = ({ navigationData }: { navigationData: RegioneInt[] }) => {
                   {regione.provincie.map((prov) => (
                     <li>
                       <Link
-                        href={`/regione/${regione.id}/prov/${prov.id}`}
+                        href={`/${regione.id}/prov/${prov.id}`}
                         className="btn btn-ghost w-full"
                         onClick={switchNavbar}
                       >
