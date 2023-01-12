@@ -11,6 +11,14 @@ export default function Region({ regione }: { regione: RegioneInt }) {
       <h1 className="text-center text-title text-4xl">
         <strong>{regione.nome}</strong>
       </h1>
+      <div className="text-sm breadcrumbs mt-1 ml-3">
+        <ul>
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>{regione.nome}</li>
+        </ul>
+      </div>
       <hr className="my-5" />
       <section className="mx-2 text-justify">
         {regione.descrizione.map((descr, index) => (
@@ -24,11 +32,9 @@ export default function Region({ regione }: { regione: RegioneInt }) {
       </section>
       <section className="mx-2 my-5">
         <h4 className="text-center text-title text-2xl">Italiani</h4>
-        <ChartBar regione={regione} provenienza="ITA" />
+        <ChartBar data={regione.dataPres} provenienza="ITA" />
         <h4 className="text-center text-title text-2xl">Stranieri</h4>
-        <ChartBar regione={regione} provenienza="OUT" />
-        <h4 className="text-center text-title text-2xl">Somma totale</h4>
-        <ChartBar regione={regione} provenienza="ALL" />
+        <ChartBar data={regione.dataPres} provenienza="OUT" />
       </section>
       <section className="mx-2 flex flex-wrap gap-5">
         {regione.provincie.map((prov) => (

@@ -6,7 +6,7 @@ const NavbarMobile = ({ navigationData }: { navigationData: RegioneInt[] }) => {
   const { navbar, switchNavbar } = NavbarConsumer();
   if (navbar) {
     return (
-      <nav className="absolute bg-base-100 top-12 h-screen z-20 w-full sm:hidden">
+      <nav className="absolute bg-base-100 top-12 h-screen z-20 w-full overflow-y-scroll sm:hidden">
         <ul className="mt-[20px]">
           <li>
             <Link
@@ -15,6 +15,15 @@ const NavbarMobile = ({ navigationData }: { navigationData: RegioneInt[] }) => {
               onClick={switchNavbar}
             >
               <em>Home</em>
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/chart"
+              className="btn btn-ghost w-full text-xl"
+              onClick={switchNavbar}
+            >
+              <em>Ricerca</em>
             </Link>
           </li>
           {navigationData.map((regione) => (
@@ -27,8 +36,10 @@ const NavbarMobile = ({ navigationData }: { navigationData: RegioneInt[] }) => {
                 <em>{regione.nome}</em>
               </Link>
               <div className="collapse collapse-arrow" tabIndex={0}>
-              <input type="checkbox" className="peer" /> 
-                <div className="collapse-title w-full text-center">Provincie della {regione.nome}</div>
+                <input type="checkbox" className="peer" />
+                <div className="collapse-title w-full text-center">
+                  Provincie della {regione.nome}
+                </div>
                 <ul className="collapse-content">
                   {regione.provincie.map((prov) => (
                     <li>

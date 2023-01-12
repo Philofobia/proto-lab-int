@@ -1,13 +1,12 @@
-import { RegioneInt } from "../../types/types";
+import { DataInt } from "../../types/types";
 import { ApexOptions } from "apexcharts";
 import dynamic from "next/dynamic";
-import { access } from "fs";
 
 export const ChartBar = ({
-  regione,
+  data,
   provenienza,
 }: {
-  regione: RegioneInt;
+  data: DataInt[];
   provenienza: string;
 }) => {
   const ReactApexChart = dynamic(() => import("react-apexcharts"), {
@@ -27,6 +26,13 @@ export const ChartBar = ({
         enabled: true,
       },
     },
+    tooltip: {
+      shared: false,
+      intersect: true,
+      x: {
+        show: false,
+      },
+    },
     responsive: [
       {
         breakpoint: 480,
@@ -40,7 +46,7 @@ export const ChartBar = ({
       },
     ],
     xaxis: {
-      categories: regione.dataPres
+      categories: data
         .map((el) => el.anno)
         .filter((value, index, self) => self.indexOf(value) === index),
     },
@@ -53,11 +59,9 @@ export const ChartBar = ({
       {
         name: "Alberghi",
         type: "column",
-        data: regione.dataPres.reduce((acc: number[], obj) => {
+        data:data.reduce((acc: number[], obj) => {
           if (obj.alloggio === "HOT" && obj.paeseRes === provenienza) {
             acc.push(obj.value);
-          } else if (obj.alloggio === "HOT" && provenienza === "ALL") {
-
           }
           return acc;
         }, []),
@@ -65,11 +69,9 @@ export const ChartBar = ({
       {
         name: "Campeggio",
         type: "column",
-        data: regione.dataPres.reduce((acc: number[], obj) => {
+        data:data.reduce((acc: number[], obj) => {
           if (obj.alloggio === "CMP" && obj.paeseRes === provenienza) {
             acc.push(obj.value);
-          } else if (obj.alloggio === "CMP" && provenienza === "ALL") {
-            
           }
           return acc;
         }, []),
@@ -77,11 +79,9 @@ export const ChartBar = ({
       {
         name: "B&B",
         type: "column",
-        data: regione.dataPres.reduce((acc: number[], obj) => {
+        data: data.reduce((acc: number[], obj) => {
           if (obj.alloggio === "BNB" && obj.paeseRes === provenienza) {
             acc.push(obj.value);
-          } else if (obj.alloggio === "BNB" && provenienza === "ALL") {
-            
           }
           return acc;
         }, []),

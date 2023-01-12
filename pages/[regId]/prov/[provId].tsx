@@ -2,6 +2,8 @@ import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import Head from "next/head";
 import { ReactElement } from "react";
 import { provInt, RegioneInt } from "../../../types/types";
+import ChartBar from "../../../components/charts/chartBar";
+import Link from "next/link";
 
 export default function Prov({ prov }: { prov: provInt }) {
   return (
@@ -9,6 +11,15 @@ export default function Prov({ prov }: { prov: provInt }) {
       <h1 className="text-center text-title text-4xl">
         <strong>{prov.nome}</strong>
       </h1>
+      <div className="text-sm breadcrumbs mt-1 ml-3">
+        <ul>
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>Regione</li>
+          <li>{prov.nome}</li>
+        </ul>
+      </div>
       <hr className="my-5" />
       <section className="mx-2 text-justify">
         <figure>
@@ -19,6 +30,12 @@ export default function Prov({ prov }: { prov: provInt }) {
             <p className="my-4">{descr}</p>
           </div>
         ))}
+      </section>
+      <section className="mx-2 my-5">
+        <h4 className="text-center text-title text-2xl">Italiani</h4>
+        <ChartBar data={prov.dataPres} provenienza="ITA" />
+        <h4 className="text-center text-title text-2xl">Stranieri</h4>
+        <ChartBar data={prov.dataPres} provenienza="OUT" />
       </section>
     </main>
   );
