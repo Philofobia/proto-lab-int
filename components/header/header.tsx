@@ -50,6 +50,28 @@ const Header = ({ navigationData }: { navigationData: RegioneInt[] }) => {
         >
           Home
         </Link>
+        <div className="dropdown dropdown-bottom">
+          <label
+            tabIndex={0}
+            className="mr-5 font-title antialiasing text-xl350 hover:text-primary"
+          >
+            Regioni
+          </label>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            {navigationData.map((regione) =>
+              regione.provincie.map((prov) => (
+                <li>
+                  <Link href={`/${regione.id}/prov/${prov.id}`}>
+                    {prov.nome}
+                  </Link>
+                </li>
+              ))
+            )}
+          </ul>
+        </div>
       </div>
       <div className="navbar-center">
         <h2 className="font-title antialiasing text-2xl">TRAVEL TREND</h2>
