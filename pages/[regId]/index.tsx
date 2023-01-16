@@ -54,6 +54,13 @@ export default function Region({ regione }: { regione: RegioneInt }) {
   );
 }
 
+/**
+
+    @function
+    @async
+    @param {GetStaticPropsContext} context - The context of the Next.js app, including the params object.
+    @returns {Promise<{props: {regione: RegioneInt[]}}>} - An object containing the data for the regione prop.
+    */
 export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext
 ) => {
@@ -71,6 +78,12 @@ export const getStaticProps: GetStaticProps = async (
   };
 };
 
+/**
+
+    @function
+    @async
+    @returns {Promise<{paths: {params: {regId: string}}[], fallback: boolean}>} - An object containing the paths and fallback status for the static pages.
+    */
 export const getStaticPaths: GetStaticPaths = async () => {
   const response = await fetch(
     "https://express-api-labint.onrender.com/api/v1/regions/"
