@@ -44,11 +44,23 @@ const Header = ({ navigationData }: { navigationData: RegioneInt[] }) => {
       </div>
 
       <div className="navbar-start hidden sm:inline-block">
-        <Link
+      <Link
           href="/"
           className="mr-5 font-title antialiasing text-xl350 hover:text-primary"
         >
           Home
+        </Link>
+        <Link
+          href="/statistics"
+          className="mr-5 font-title antialiasing text-xl350 hover:text-primary"
+        >
+          Statistiche
+        </Link>
+        <Link
+          href="/previsions"
+          className="mr-5 font-title antialiasing text-xl350 hover:text-primary"
+        >
+          Previsioni
         </Link>
         <div className="dropdown dropdown-bottom">
           <label

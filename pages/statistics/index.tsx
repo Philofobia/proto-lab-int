@@ -14,7 +14,7 @@ const Chart = () => {
   return (
     <main className="mt-[80px] mb-[50px]">
       <h1 className="text-center text-title text-4xl">
-        <strong>Ricerca</strong>
+        <strong>Statistiche</strong>
       </h1>
       <div className="text-sm breadcrumbs mt-1 ml-3">
         <ul>

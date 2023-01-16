@@ -19,11 +19,20 @@ const NavbarMobile = ({ navigationData }: { navigationData: RegioneInt[] }) => {
           </li>
           <li>
             <Link
-              href="/chart"
+              href="/previsions"
               className="btn btn-ghost w-full text-xl"
               onClick={switchNavbar}
             >
-              <em>Ricerca</em>
+              <em>Previsioni</em>
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/statistics"
+              className="btn btn-ghost w-full text-xl"
+              onClick={switchNavbar}
+            >
+              <em>Statistiche</em>
             </Link>
           </li>
           {navigationData.map((regione) => (
