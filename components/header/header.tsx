@@ -73,11 +73,18 @@ const Header = ({ navigationData }: { navigationData: RegioneInt[] }) => {
             tabIndex={0}
             className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
           >
+            {navigationData.map((regione, index) => (
+              <li key={index}>
+                <Link href={`/${regione.regione.nomeRegione}`}>
+                    <strong>{regione.regione.nomeRegione}</strong>
+                  </Link>
+              </li>
+            ))}
             {navigationData.map((regione) =>
-              regione.provincie.map((prov) => (
-                <li>
-                  <Link href={`/${regione.id}/prov/${prov.id}`}>
-                    {prov.nome}
+              regione.province.map((prov, index) => (
+                <li key={index} className="ml-2">
+                  <Link href={`/${regione.regione.nomeRegione}/${prov}`}>
+                    {prov}
                   </Link>
                 </li>
               ))

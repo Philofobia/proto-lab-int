@@ -1,114 +1,113 @@
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import Head from "next/head";
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement } from "react";
+import { DataInt, provInt, RegioneInt } from "../../types/types";
+import ChartBar from "../../components/charts/chartBar";
 import Link from "next/link";
-import { RegioneInt } from "../../types/types";
 
-const Chart = () => {
-  const [regioni, setRegioni] = useState<RegioneInt[]>();
-  useEffect(() => {
-    getRegions().then((res) => setRegioni(res));
-    console.log(regioni)
-  }, []);
-
-  const getRegions = async () => {
-    const res = await fetch("http://localhost:9999/regioni");
-    const data = await res.json();
-    console.log(data)
-    return data;
-  };
-
+export default function Prov({
+  prov,
+  datiGrafico,
+}: {
+  prov: provInt;
+  datiGrafico: DataInt[];
+}) {
   return (
-    <main className="mt-[80px] mb-[50px]">
-      {/* <h1 className="text-center text-title text-4xl">
-        <strong>Statistiche</strong>
+    <main className="mt-[80px]">
+      <h1 className="text-center text-title text-4xl">
+        <strong>{prov.provincia.nomeProvincia}</strong>
       </h1>
       <div className="text-sm breadcrumbs mt-1 ml-3">
         <ul>
           <li>
             <Link href="/">Home</Link>
           </li>
-          <li>Grafici</li>
+          <li>
+            <Link href={`/${prov.provincia.nomeProvincia}`}>{prov.provincia.nomeProvincia}</Link>
+          </li>
+          <li>{prov.provincia.nomeProvincia}</li>
         </ul>
       </div>
       <hr className="my-5" />
       <section className="mx-2 text-justify">
-        <div className="card shadow-xl bg-neutral-focus h-[450px]">
-          <select className="select w-[90%] mt-4 mx-auto mt-2">
-            <option disabled selected>
-              Regione
-            </option>
-            {regioni.map((regione, index) => (
-              <option value={regione.regione.nomeRegione} key={index}>
-                {regione.regione.nomeRegione}
-              </option>
-            ))}
-          </select>
-          <select className="select w-[90%] mt-2 mx-auto">
-            <option disabled selected>
-              Provincia
-            </option>
-            {regioni.map((regione, index) =>
-              regione.province.map((prov) => (
-                <option value={prov} key={index}>{prov}</option>
-              ))
-            )}
-          </select>
-          <select className="select w-[90%] mt-2 mx-auto">
-            <option disabled selected>
-              Tipo di struttura
-            </option>
-            <option value="HOTEL">Hotel</option>
-            <option value="CAMPING">Camping</option>
-            <option value="RESIDENCE">Residence</option>
-            <option value="B&B">Bed & Breakfast</option>
-          </select>
-          <select className="select w-[90%] mt-2 mx-auto">
-            <option disabled selected>
-              Paese di Provenienza
-            </option>
-            <option value="ITA">Italia</option>
-            <option value="OUT">Estero</option>
-          </select>
-          <select className="select w-[90%] mt-2 mx-auto">
-            <option disabled selected>
-              Inizio periodo di ricerca
-            </option>
-            <option value="2021-01-01">Gennaio 2021</option>
-            <option value="2021-02-01">Febbraio 2021</option>
-            <option value="2021-03-01">Marzo 2021</option>
-            <option value="2021-04-01">Aprile 2021</option>
-            <option value="2021-05-01">Maggio 2021</option>
-            <option value="2021-06-01">Giugno 2021</option>
-            <option value="2021-07-01">Luglio 2021</option>
-          </select>
-          <select className="select w-[90%] mt-2 mx-auto">
-            <option disabled selected>
-              Fine periodo di ricerca
-            </option>
-            <option value="2021-01-01">Gennaio 2025</option>
-            <option value="2021-02-01">Febbraio 2025</option>
-            <option value="2021-03-01">Marzo 2025</option>
-            <option value="2021-04-01">Aprile 2025</option>
-            <option value="2021-05-01">Maggio 2025</option>
-            <option value="2021-06-01">Giugno 2025</option>
-            <option value="2021-07-01">Luglio 2025</option>
-          </select>
-          <button className="btn w-[45%] mt-9 mx-auto">Cerca</button>
-        </div>
-      </section> */}
+        <figure>
+          <img src="da inserire" alt={`foto ${prov.provincia.nomeProvincia}`} />
+        </figure>
+        {prov.provincia.descrizioneProvincia}
+      </section>
+      <section className="mx-2 my-5">
+        <h3 className="text-center text-title text-2xl">
+          Statistiche delle presenze totali
+        </h3>
+        <ChartBar data={datiGrafico} provenienza="WRL_X_ITA" />
+        <h3 className="text-center text-title text-2xl">
+          Statistiche delle presenze italiane
+        </h3>
+        <ChartBar data={datiGrafico} provenienza="IT" />
+        <h3 className="text-center text-title text-2xl">
+          Statistiche delle presenze estere
+        </h3>
+        <ChartBar data={datiGrafico} provenienza="WORLD" />
+      </section>
     </main>
   );
+}
+
+export const getStaticProps: GetStaticProps = async (
+  context: GetStaticPropsContext
+) => {
+  const { params } = context;
+  const [response, responseGraph] = await Promise.all([
+    fetch(
+      `http://localhost:9999/regioni/${params!.regName}/${params!.provName}`
+    ),
+    fetch(
+      `http://localhost:9999/${params!.regName}/${
+        params!.provName
+      }`.toLowerCase()
+    ),
+  ]);
+
+  const [data, dataGraphUnclean]: [provInt, DataInt[]] = await Promise.all([
+    response.json(),
+    responseGraph.json(),
+  ]);
+
+  const dataGraph: DataInt[] = dataGraphUnclean.filter(
+    (el) => el.annoMese.length === 4 && el.tipologiaDato === "NI"
+  );
+  return {
+    props: {
+      prov: data,
+      datiGrafico: dataGraph,
+    },
+  };
 };
 
-export default Chart;
+export const getStaticPaths: GetStaticPaths = async () => {
+  const response = await fetch("http://localhost:9999/regioni/");
+  const data: RegioneInt[] = await response.json();
+  const paths: { params: { regName: string; provName: string } }[] = [];
+  data.forEach((regione) =>
+    regione.province.map((prov) => {
+      const param = {
+        params: {
+          regName: `${regione.regione.nomeRegione}`,
+          provName: `${prov}`,
+        },
+      };
+      paths.push(param);
+    })
+  );
+  return { paths, fallback: false };
+};
 
 const addProductJsonLd = () => {
   return {
     __html: ``,
   };
 };
-
-Chart.getLayout = function PageLayout(page: ReactElement) {
+Prov.getLayout = function PageLayout(page: ReactElement) {
   return (
     <>
       <Head>

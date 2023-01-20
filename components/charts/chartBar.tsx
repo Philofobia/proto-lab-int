@@ -16,8 +16,6 @@ export const ChartBar = ({
   const options: ApexOptions = {
     chart: {
       type: "line",
-      height: 400,
-      width: "100%",
       stacked: false,
       toolbar: {
         show: true,
@@ -33,55 +31,44 @@ export const ChartBar = ({
         show: false,
       },
     },
-    responsive: [
-      {
-        breakpoint: 480,
-        options: {
-          legend: {
-            position: "bottom",
-            offsetX: -10,
-            offsetY: 0,
-          },
-        },
-      },
-    ],
+    legend: {
+      position: "bottom",
+      offsetX: -10,
+      offsetY: 0,
+    },
     xaxis: {
       categories: data
-        .map((el) => el.anno)
+        .map((el) => el.annoMese)
         .filter((value, index, self) => self.indexOf(value) === index),
     },
     yaxis: {
       title: {
-        text: "Attendance",
+        text: "Presenze",
       },
     },
     series: [
       {
         name: "Alberghi",
         type: "column",
-        data:data.reduce((acc: number[], obj) => {
-          if (obj.alloggio === "HOT" && obj.paeseRes === provenienza) {
-            acc.push(obj.value);
+        data: data.reduce((acc: number[], obj) => {
+          if (
+            obj.tipologiaAlloggio === "HOTELLIKE" &&
+            obj.provenienza === provenienza
+          ) {
+            acc.push(obj.valore);
           }
           return acc;
         }, []),
       },
       {
-        name: "Campeggio",
-        type: "column",
-        data:data.reduce((acc: number[], obj) => {
-          if (obj.alloggio === "CMP" && obj.paeseRes === provenienza) {
-            acc.push(obj.value);
-          }
-          return acc;
-        }, []),
-      },
-      {
-        name: "B&B",
+        name: "Altro",
         type: "column",
         data: data.reduce((acc: number[], obj) => {
-          if (obj.alloggio === "BNB" && obj.paeseRes === provenienza) {
-            acc.push(obj.value);
+          if (
+            obj.tipologiaAlloggio === "OTHER" &&
+            obj.provenienza === provenienza
+          ) {
+            acc.push(obj.valore);
           }
           return acc;
         }, []),
@@ -90,13 +77,15 @@ export const ChartBar = ({
   };
 
   return (
+  <div className="h-52 w-full mx-auto md:w-[45rem] md:h-[24rem]">
     <ReactApexChart
       options={options}
       series={options.series}
       width={"100%"}
-      height={400}
+      height={"100%"}
       type="line"
     />
+  </div>
   );
 };
 

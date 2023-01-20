@@ -32,7 +32,7 @@ const Chart = () => {
               Regione
             </option>
             {regioni.map((regione) => (
-              <option value={regione.id}>{regione.nome}</option>
+              <option value={regione.id}>{regione.nome_regione}</option>
             ))}
           </select>
           <select className="select w-[90%] mt-2 mx-auto">
@@ -40,8 +40,8 @@ const Chart = () => {
               Provincia
             </option>
             {regioni.map((regione) =>
-              regione.provincie.map((prov) => (
-                <option value={prov.id}>{prov.nome}</option>
+              regione.province.map((prov) => (
+                <option value={prov.id}>{prov.nome_provincia}</option>
               ))
             )}
           </select>

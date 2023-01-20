@@ -38,26 +38,26 @@ const NavbarMobile = ({ navigationData }: { navigationData: RegioneInt[] }) => {
           {navigationData.map((regione) => (
             <li>
               <Link
-                href={`/${regione.id}`}
+                href={`/${regione.regione.nomeRegione}`}
                 className="btn btn-ghost text-xl w-full z-50"
                 onClick={switchNavbar}
               >
-                <em>{regione.nome}</em>
+                <em>{regione.regione.nomeRegione}</em>
               </Link>
               <div className="collapse collapse-arrow" tabIndex={0}>
                 <input type="checkbox" className="peer" />
                 <div className="collapse-title w-full text-center">
-                  Provincie della {regione.nome}
+                  Province della {regione.regione.nomeRegione}
                 </div>
                 <ul className="collapse-content">
-                  {regione.provincie.map((prov) => (
-                    <li>
+                  {regione.province.map((prov, index) => (
+                    <li key={index}>
                       <Link
-                        href={`/${regione.id}/prov/${prov.id}`}
+                        href={`/${regione.regione.nomeRegione}/${prov}`}
                         className="btn btn-ghost w-full"
                         onClick={switchNavbar}
                       >
-                        {prov.nome}
+                        {prov}
                       </Link>
                     </li>
                   ))}

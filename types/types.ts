@@ -3,33 +3,30 @@ import { NextPage } from "next";
 import { AppProps } from "next/app";
 
 export interface RegioneInt {
-  nome: string;
-  id: number;
-  descrizione: string[];
-  immagini: string[];
-  provincie: { nome: string; id: number; img: string }[];
-  dataPres: DataInt[];
+  regione: {
+    nomeRegione: string;
+    id: number;
+    descrizioneRegione: string;
+    immagini: string[];
+  };
+  province: string[];
 }
 
 export interface DataInt {
-  indicatori: string;
-  alloggio: string;
-  paeseRes: string;
-  value: number;
-  anno: number;
-}
-
-export interface provsItalyInt {
-  regId: number;
-  prov: provInt[];
+  id: number;
+  tipologiaDato: string;
+  tipologiaAlloggio: string;
+  provenienza: string;
+  annoMese: string;
+  valore: number;
 }
 
 export interface provInt {
-  id: number;
-  nome: string;
-  descrizione: string[];
-  img: string[];
-  dataPres: DataInt[];
+  regione: string;
+  provincia: {id: number;
+  regione: number;
+  nomeProvincia: string;
+  descrizioneProvincia: string;}
 }
 
 //LAYOUT

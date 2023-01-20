@@ -49,9 +49,8 @@ export default function App({
     @returns {Promise<{[propName: string]: any}>} - An object containing any initial props for the component.
     */
 App.getInitialProps = async (appContext: AppContext) => {
-  const response = await fetch('https://express-api-labint.onrender.com/api/v1/regions/');
-  const unclearedData = await response.json();
-  const data: RegioneInt[] = unclearedData.data.regions;
+  const response = await fetch('http://localhost:9999/regioni');
+  const data: RegioneInt[] = await response.json();
   const appProps = await NextApp.getInitialProps(appContext);
   const navigation: RegioneInt[] = data;
   return { ...appProps, navigation };
