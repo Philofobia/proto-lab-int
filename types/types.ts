@@ -20,7 +20,6 @@ export interface DataInt {
   annoMese: string;
   valore: number;
 }
-
 export interface provInt {
   regione: string;
   provincia: {id: number;

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { ReactElement, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import Link from "next/link";
 import { DataInt, formParamsInt, RegioneInt } from "../../types/types";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
@@ -14,12 +14,10 @@ const Chart = ({
   resData: DataInt[] | undefined;
 }) => {
   const router = useRouter();
-  const [searchCheck, setSearchChek] = useState<boolean>(false);
 
   const handleQueryParams = (e: any) => {
     e.preventDefault();
     e.stopPropagation();
-    setSearchChek(true);
     const regione = e.target[0].value;
     const provincia = e.target[1].value;
     const tipoAlloggio = e.target[2].value;
@@ -123,13 +121,28 @@ const Chart = ({
           </div>
         </form>
       </section>
-      <hr className="mt-5" />
+      <hr className="my-5" />
       {resData?.length !== 0 ? (
         <ChartBarStatistiche data={resData!} />
-      ) : searchCheck ? (
-        <div>HAI FATTO UNA CAZZATA</div>
       ) : (
-        <div>FAI UNA RICERCA</div>
+        <div className="alert alert-info shadow-lg w-[90%] mx-auto">
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              className="stroke-current flex-shrink-0 w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            <span>Fai una ricerca.</span>
+          </div>
+        </div>
       )}
     </main>
   );
@@ -168,7 +181,7 @@ export const getServerSideProps: GetServerSideProps = async (
       ),
     ]);
   }
-  console.log(objData);
+
   let [data, reasearchDataUnclean]: [RegioneInt[], DataInt[] | undefined] = [
     [],
     [],
