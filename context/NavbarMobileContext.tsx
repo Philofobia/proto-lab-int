@@ -15,12 +15,11 @@ export const NavbarContextProvider = ({
 
   const switchNavbar = () => {
     if (navbar === false) {
-      setNavbar(true), document.body.classList.add("no-scroll");
+      setNavbar(true), scroll(0, 0), document.body.classList.add("no-scroll");
     } else {
       setNavbar(false), document.body.classList.remove("no-scroll");
     }
   };
-
 
   return (
     <NavbarContext.Provider value={{ navbar, switchNavbar }}>
