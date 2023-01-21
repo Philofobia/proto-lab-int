@@ -1,25 +1,47 @@
 import Head from "next/head";
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useState } from "react";
 import Link from "next/link";
-import { RegioneInt } from "../../types/types";
+import { DataInt, formParamsInt, RegioneInt } from "../../types/types";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
+import { useRouter } from "next/router";
+import ChartBarStatistiche from "../../components/charts/chartBarStatistiche";
 
-const Chart = () => {
-  const [regioni, setRegioni] = useState<RegioneInt[]>();
-  useEffect(() => {
-    getRegions().then((res) => setRegioni(res));
-    console.log(regioni)
-  }, []);
+const Chart = ({
+  regioni,
+  resData,
+}: {
+  regioni: RegioneInt[];
+  resData: DataInt[] | undefined;
+}) => {
+  const router = useRouter();
+  const [searchCheck, setSearchChek] = useState<boolean>(false);
 
-  const getRegions = async () => {
-    const res = await fetch("http://localhost:9999/regioni");
-    const data = await res.json();
-    console.log(data)
-    return data;
+  const handleQueryParams = (e: any) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setSearchChek(true);
+    const regione = e.target[0].value;
+    const provincia = e.target[1].value;
+    const tipoAlloggio = e.target[2].value;
+    const provenienza = e.target[3].value;
+    const tipologiaDato = e.target[4].value;
+    const filtroTempo =
+      e.target[5].checked === true ? e.target[5].value : e.target[6].value;
+
+    router.push({
+      query: {
+        regione,
+        provincia,
+        tipoAlloggio,
+        provenienza,
+        tipologiaDato,
+        filtroTempo,
+      },
+    });
   };
-
   return (
     <main className="mt-[80px] mb-[50px]">
-      {/* <h1 className="text-center text-title text-4xl">
+      <h1 className="text-center text-title text-4xl">
         <strong>Statistiche</strong>
       </h1>
       <div className="text-sm breadcrumbs mt-1 ml-3">
@@ -32,75 +54,155 @@ const Chart = () => {
       </div>
       <hr className="my-5" />
       <section className="mx-2 text-justify">
-        <div className="card shadow-xl bg-neutral-focus h-[450px]">
-          <select className="select w-[90%] mt-4 mx-auto mt-2">
-            <option disabled selected>
-              Regione
-            </option>
-            {regioni.map((regione, index) => (
-              <option value={regione.regione.nomeRegione} key={index}>
-                {regione.regione.nomeRegione}
-              </option>
-            ))}
-          </select>
-          <select className="select w-[90%] mt-2 mx-auto">
-            <option disabled selected>
-              Provincia
-            </option>
-            {regioni.map((regione, index) =>
-              regione.province.map((prov) => (
-                <option value={prov} key={index}>{prov}</option>
-              ))
-            )}
-          </select>
-          <select className="select w-[90%] mt-2 mx-auto">
-            <option disabled selected>
-              Tipo di struttura
-            </option>
-            <option value="HOTEL">Hotel</option>
-            <option value="CAMPING">Camping</option>
-            <option value="RESIDENCE">Residence</option>
-            <option value="B&B">Bed & Breakfast</option>
-          </select>
-          <select className="select w-[90%] mt-2 mx-auto">
-            <option disabled selected>
-              Paese di Provenienza
-            </option>
-            <option value="ITA">Italia</option>
-            <option value="OUT">Estero</option>
-          </select>
-          <select className="select w-[90%] mt-2 mx-auto">
-            <option disabled selected>
-              Inizio periodo di ricerca
-            </option>
-            <option value="2021-01-01">Gennaio 2021</option>
-            <option value="2021-02-01">Febbraio 2021</option>
-            <option value="2021-03-01">Marzo 2021</option>
-            <option value="2021-04-01">Aprile 2021</option>
-            <option value="2021-05-01">Maggio 2021</option>
-            <option value="2021-06-01">Giugno 2021</option>
-            <option value="2021-07-01">Luglio 2021</option>
-          </select>
-          <select className="select w-[90%] mt-2 mx-auto">
-            <option disabled selected>
-              Fine periodo di ricerca
-            </option>
-            <option value="2021-01-01">Gennaio 2025</option>
-            <option value="2021-02-01">Febbraio 2025</option>
-            <option value="2021-03-01">Marzo 2025</option>
-            <option value="2021-04-01">Aprile 2025</option>
-            <option value="2021-05-01">Maggio 2025</option>
-            <option value="2021-06-01">Giugno 2025</option>
-            <option value="2021-07-01">Luglio 2025</option>
-          </select>
-          <button className="btn w-[45%] mt-9 mx-auto">Cerca</button>
-        </div>
-      </section> */}
+        <form onSubmit={handleQueryParams} className="w-full h-full">
+          <div className="card shadow-xl bg-neutral h-[450px]">
+            <select className="select w-[90%] mt-4 mx-auto mt-2">
+              <option disabled>Regione</option>
+              {regioni &&
+                regioni.map((regione, index) => (
+                  <option value={regione.regione.nomeRegione} key={index}>
+                    {regione.regione.nomeRegione}
+                  </option>
+                ))}
+            </select>
+            <select className="select w-[90%] mt-2 mx-auto">
+              <option disabled>Provincia</option>
+              {regioni &&
+                regioni.map((regione) =>
+                  regione.province.map((prov, index) => (
+                    <option value={prov} key={index}>
+                      {prov}
+                    </option>
+                  ))
+                )}
+              <option value="NONE">Nessuna provincia</option>
+            </select>
+            <select className="select w-[90%] mt-2 mx-auto">
+              <option disabled>Tipo di struttura</option>
+              <option value="HOTELLIKE">Hotel</option>
+              <option value="OTHER">Altro</option>
+              <option value="ALL">Tutti i tipi</option>
+            </select>
+            <select className="select w-[90%] mt-2 mx-auto">
+              <option disabled>Paese di Provenienza</option>
+              <option value="IT">Italia</option>
+              <option value="WORLD">Estero</option>
+              <option value="WRL_X_ITA">Tutti</option>
+            </select>
+            <select className="select w-[90%] mt-2 mx-auto">
+              <option disabled>Tipo di dato</option>
+              <option value="AR">Arrivi</option>
+              <option value="NI">Presenze</option>
+            </select>
+            <div className="mx-auto my-5">
+              <input
+                type="radio"
+                id="annoMese"
+                name="grafici"
+                value="annoMese"
+                className="radio radio-primary mr-2 align-middle"
+                defaultChecked
+              />
+              <label htmlFor="annoMese" className="cursor-pointer text-primary">
+                Grafici anno & mese
+              </label>
+              <input
+                type="radio"
+                id="anno"
+                name="grafici"
+                value="anno"
+                className="radio radio-primary mr-2 ml-5 align-middle"
+              />
+              <label htmlFor="anno" className="cursor-pointer text-primary">
+                Grafici annuali
+              </label>
+            </div>
+            <button className="btn w-[45%] mx-auto btn-primary" type="submit">
+              Cerca
+            </button>
+          </div>
+        </form>
+      </section>
+      <hr className="mt-5" />
+      {resData?.length !== 0 ? (
+        <ChartBarStatistiche data={resData!} />
+      ) : searchCheck ? (
+        <div>HAI FATTO UNA CAZZATA</div>
+      ) : (
+        <div>FAI UNA RICERCA</div>
+      )}
     </main>
   );
 };
 
 export default Chart;
+
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
+  const { query } = context;
+  const objData: formParamsInt = {
+    regione: query["regione"]?.toString().toLowerCase(),
+    provincia: query["provincia"]?.toString().toLowerCase(),
+    tipoAlloggio: query["tipoAlloggio"],
+    provenienza: query["provenienza"],
+    tipologiaDato: query["tipologiaDato"],
+    filtroTempo: query["filtroTempo"],
+  };
+
+  let response, researchResponse;
+  if (objData === undefined) {
+    response = await fetch(`http://localhost:9999/regioni`);
+  } else if (objData.provincia === "none") {
+    [response, researchResponse] = await Promise.all([
+      fetch(`http://localhost:9999/regioni`),
+      fetch(
+        `http://localhost:9999/${objData.regione}?TipologiaAlloggio=${objData.tipoAlloggio}&Provenienza=${objData.provenienza}&TipologiaDato=${objData.tipologiaDato}`
+      ),
+    ]);
+  } else {
+    [response, researchResponse] = await Promise.all([
+      fetch(`http://localhost:9999/regioni`),
+      fetch(
+        `http://localhost:9999/${objData.regione}/${objData.provincia}?TipologiaAlloggio=${objData.tipoAlloggio}&Provenienza=${objData.provenienza}&TipologiaDato=${objData.tipologiaDato}`
+      ),
+    ]);
+  }
+  console.log(objData);
+  let [data, reasearchDataUnclean]: [RegioneInt[], DataInt[] | undefined] = [
+    [],
+    [],
+  ];
+  if (researchResponse === undefined) {
+    data = await response.json();
+  } else {
+    [data, reasearchDataUnclean] = await Promise.all([
+      response.json(),
+      researchResponse.json(),
+    ]);
+  }
+
+  let researchData: DataInt[] = [];
+  if (objData.filtroTempo === "anno" && reasearchDataUnclean !== undefined) {
+    researchData = reasearchDataUnclean.filter(
+      (el) => el.annoMese.length === 4
+    );
+  } else if (
+    objData.filtroTempo === "annoMese" &&
+    reasearchDataUnclean !== undefined
+  ) {
+    researchData = reasearchDataUnclean.filter(
+      (el) => el.annoMese.length !== 4
+    );
+  }
+
+  return {
+    props: {
+      regioni: data,
+      resData: researchData,
+    },
+  };
+};
 
 const addProductJsonLd = () => {
   return {

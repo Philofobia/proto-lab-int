@@ -23,7 +23,7 @@ export default function Prov({
             <Link href="/">Home</Link>
           </li>
           <li>
-            <Link href={`/${prov.provincia.nomeProvincia}`}>{prov.provincia.nomeProvincia}</Link>
+            <Link href={`/${prov.regione}`}>{prov.regione}</Link>
           </li>
           <li>{prov.provincia.nomeProvincia}</li>
         </ul>

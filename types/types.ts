@@ -49,3 +49,13 @@ export interface NavbarContextInt {
   navbar: boolean;
   switchNavbar: () => void;
 }
+
+//STATISTIC
+export interface formParamsInt {
+  regione?: string | string[],
+  provincia?: string | string[],
+  tipoAlloggio?: string | string[],
+  provenienza?: string | string[],
+  tipologiaDato?: string | string[];
+  filtroTempo?: string | string[];
+}

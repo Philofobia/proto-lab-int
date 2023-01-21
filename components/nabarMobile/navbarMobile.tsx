@@ -6,7 +6,7 @@ const NavbarMobile = ({ navigationData }: { navigationData: RegioneInt[] }) => {
   const { navbar, switchNavbar } = NavbarConsumer();
   if (navbar) {
     return (
-      <nav className="absolute bg-base-100 top-12 h-screen z-20 w-full overflow-y-scroll sm:hidden">
+      <nav className="absolute bg-base-100 top-12 h-screen z-20 w-full overflow-y-scroll lg:hidden">
         <ul className="mt-[20px]">
           <li>
             <Link

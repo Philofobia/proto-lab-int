@@ -2,8 +2,8 @@ import { createContext, useContext, useState } from "react";
 import { NavbarContextInt } from "../types/types";
 
 export const NavbarContext = createContext<NavbarContextInt>({
-    navbar: false,
-    switchNavbar: () => {}
+  navbar: false,
+  switchNavbar: () => {},
 });
 
 export const NavbarContextProvider = ({
@@ -14,9 +14,13 @@ export const NavbarContextProvider = ({
   const [navbar, setNavbar] = useState<boolean>(false);
 
   const switchNavbar = () => {
-    if (navbar === false) setNavbar(true);
-    else setNavbar(false)
+    if (navbar === false) {
+      setNavbar(true), document.body.classList.add("no-scroll");
+    } else {
+      setNavbar(false), document.body.classList.remove("no-scroll");
+    }
   };
+
 
   return (
     <NavbarContext.Provider value={{ navbar, switchNavbar }}>
@@ -28,3 +32,6 @@ export const NavbarContextProvider = ({
 export const NavbarConsumer = () => {
   return useContext(NavbarContext);
 };
+function preventDefaultForScrollKeys(this: Window, ev: KeyboardEvent) {
+  throw new Error("Function not implemented.");
+}

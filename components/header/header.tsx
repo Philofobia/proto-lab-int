@@ -8,7 +8,7 @@ const Header = ({ navigationData }: { navigationData: RegioneInt[] }) => {
 
   return (
     <header className="navbar bg-base-100 shadow-xl fixed z-50 top-0 h-12">
-      <div className="navbar-start sm:hidden">
+      <div className="navbar-start lg:hidden">
         <button className="btn btn-ghost" onClick={switchNavbar}>
           {navbar ? (
             <svg
@@ -43,7 +43,7 @@ const Header = ({ navigationData }: { navigationData: RegioneInt[] }) => {
         </button>
       </div>
 
-      <div className="navbar-start hidden sm:inline-block">
+      <div className="navbar-start hidden lg:inline-block">
         <Link
           href="/"
           className="mr-5 font-title antialiasing text-xl350 hover:text-primary"
