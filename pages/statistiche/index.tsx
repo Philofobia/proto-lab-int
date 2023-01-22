@@ -59,6 +59,29 @@ const ChartStatistiche = ({
         </ul>
       </div>
       <div className="divider my-5 px-2"></div>
+      <section className="text-justify text-body mx-3 my-5">
+        <p>
+          Il form per visualizzare i grafici dell'afflusso turistico o delle
+          presenze turistiche in Sardegna è uno strumento che consente di
+          analizzare i flussi turistici sull'isola in modo dettagliato. Il form
+          presenta diversi filtri per personalizzare la visualizzazione dei
+          dati.
+        </p>
+        <p className="my-3">
+          In primo luogo, è possibile selezionare le province di interesse per
+          visualizzare i dati solo per quelle specifiche aree. Inoltre, è
+          possibile filtrare i dati per tipo di alloggio turistico scelto, come
+          ad esempio hotel. Inoltre, è possibile filtrare i dati per
+          provenienza, per esempio per visualizzare solo i turisti stranieri o
+          italiani.
+        </p>
+        <p>
+          Infine, è possibile scegliere se visualizzare i dati al dettaglio solo
+          per anni o mesi. Grazie a questi filtri, è possibile analizzare i dati
+          in modo dettagliato e comprendere meglio i flussi turistici in
+          Sardegna.
+        </p>
+      </section>
       <section className="mx-2 text-justify">
         <form onSubmit={handleQueryParams} className="w-full h-full">
           <div className="card shadow-xl bg-neutral h-[450px]">

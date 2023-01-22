@@ -46,6 +46,30 @@ const ChartPrevisioni = ({
         </ul>
       </div>
       <div className="divider my-5 px-2"></div>
+      <section className="text-justify text-body mx-3 my-5">
+        <p>
+          Il form per visualizzare i grafici di andamento delle previsioni delle
+          presenze turistiche in Sardegna è uno strumento che consente di
+          analizzare l'evoluzione futura dei flussi turistici sull'isola in modo
+          dettagliato. Il form presenta diversi filtri per personalizzare la
+          visualizzazione dei dati. In primo luogo, è possibile selezionare le
+          province di interesse per visualizzare le previsioni solo per quelle
+          specifiche aree.
+        </p>
+        <p className="my-3">
+          {" "}
+          Inoltre, è possibile filtrare i dati per tipo di alloggio turistico
+          scelto, come ad esempio hotel, campeggi, affittacamere. Inoltre, è
+          possibile filtrare i dati per provenienza, per esempio per
+          visualizzare solo le previsioni per i turisti stranieri o italiani.{" "}
+        </p>
+        <p>
+          Infine, i grafici mostrano previsioni per gli anni futuri, divisi per
+          mesi. Grazie a questi filtri, è possibile analizzare le previsioni in
+          modo dettagliato e comprendere meglio l'evoluzione futura dei flussi
+          turistici in Sardegna.
+        </p>
+      </section>
       <section className="mx-2 text-justify">
         <form onSubmit={handleQueryParams} className="w-full h-full">
           <div className="card shadow-xl bg-neutral h-[21em]">
@@ -130,7 +154,7 @@ export const getServerSideProps: GetServerSideProps = async (
     tipoAlloggio: query["tipoAlloggio"],
     provenienza: query["provenienza"],
   };
-  
+
   let response, researchResponse;
   if (Object.values(objData).every((val) => val === undefined)) {
     response = await fetch(`http://localhost:9999/regioni`);

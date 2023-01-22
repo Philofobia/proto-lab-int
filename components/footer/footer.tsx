@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="footer h-auto bg-base-200 border-t-[1px] absolute bottom-0">
+    <footer className="footer h-auto bg-base-200 border-t-[1px]">
       <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
         <nav className="flex title-font font-medium items-center justify-center sm:hidden">
           <Link href="/" className="font-title antialiasing text-xl350">
