@@ -91,12 +91,6 @@ const Header = ({ navigationData }: { navigationData: RegioneInt[] }) => {
             )}
           </ul>
         </div>
-            <Link
-              href="/chiSiamo"
-              className="mr-5 font-title antialiasing text-xl350 hover:text-primary"
-            >
-              Chi siamo
-            </Link>
       </div>
       <div className="navbar-center">
         <h2 className="font-title antialiasing text-2xl">TRAVEL TREND</h2>

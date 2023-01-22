@@ -41,7 +41,7 @@ const ChartLine = ({ data }: { data: DataPrevInt[] }) => {
     series: [
         {
           name: "Presenze",
-          data: data.map((el) => el.valore),
+          data: data.map((el) => +(el.valore).toFixed(0)),
         },
     ]
   };

@@ -65,15 +65,6 @@ const NavbarMobile = ({ navigationData }: { navigationData: RegioneInt[] }) => {
               </div>
             </li>
           ))}
-          <li>
-            <Link
-              href="/chiSiamo"
-              className="btn btn-ghost w-full text-xl"
-              onClick={switchNavbar}
-            >
-              <em>Chi Siamo</em>
-            </Link>
-          </li>
         </ul>
       </nav>
     );
