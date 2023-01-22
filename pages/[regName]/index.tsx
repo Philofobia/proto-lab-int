@@ -26,10 +26,26 @@ export default function Region({
         </ul>
       </section>
       <div className="divider my-5 px-2"></div>
-      <section className="mx-2 text-justify">
+      <section className="text-justify text-body mx-3 my-5">
         {regione.regione.descrizioneRegione}
       </section>
+      <div className="divider my-5 px-2"></div>
       <section className="mx-2 my-5">
+        <p className="text-justify text-body mx-3 my-5">
+          I grafici che mostrano l'andamento del numero di persone che viaggiano
+          o sono presenti in {regione.regione.nomeRegione} sono divisi in tre categorie: popolazione
+          estera, popolazione italiana e totale. La linea orizzontale
+          rappresenta il tempo, mentre la linea verticale rappresenta il numero
+          di persone. Il grafico della popolazione estera mostra il numero di
+          turisti stranieri che visitano l'isola, il grafico della popolazione
+          italiana mostra il numero di italiani che viaggiano o sono attualmente
+          in una infrastruttura turistica in {regione.regione.nomeRegione}, mentre il grafico totale
+          mostra il numero totale di persone presenti sull'isola, sia italiane
+          che straniere. Grazie a questi grafici è possibile analizzare
+          l'andamento dei flussi turistici e delle presenze in {regione.regione.nomeRegione} nel
+          corso del tempo e - nella sezione previsioni - fare predizioni sul
+          futuro.
+        </p>
         <h3 className="text-center text-title text-2xl">
           Statistiche delle presenze totali
         </h3>

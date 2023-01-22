@@ -54,7 +54,7 @@ const ChartBarStatistiche = ({ data }: { data: DataInt[] }) => {
   };
 
   return (
-    <div className="h-52 w-full mx-auto lg:w-[60rem] lg:h-[32rem] xl:w-[90rem] xl:h.[40rem]">
+    <section className="h-52 w-full mx-auto lg:w-[60rem] lg:h-[32rem] xl:w-[90rem] xl:h-[40rem]">
       <ReactApexChart
         options={options}
         series={options.series}
@@ -62,7 +62,7 @@ const ChartBarStatistiche = ({ data }: { data: DataInt[] }) => {
         height={"100%"}
         type="line"
       />
-    </div>
+    </section>
   );
 };
 

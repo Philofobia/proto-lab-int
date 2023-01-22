@@ -130,7 +130,7 @@ export const getServerSideProps: GetServerSideProps = async (
     tipoAlloggio: query["tipoAlloggio"],
     provenienza: query["provenienza"],
   };
-  console.log(objData);
+  
   let response, researchResponse;
   if (Object.values(objData).every((val) => val === undefined)) {
     response = await fetch(`http://localhost:9999/regioni`);

@@ -47,7 +47,7 @@ const ChartLine = ({ data }: { data: DataPrevInt[] }) => {
   };
 
   return (
-    <div className="h-52 w-full mx-auto md:w-[45rem] md:h-[24rem]">
+    <section className="h-52 w-full mx-auto lg:w-[60rem] lg:h-[32rem] xl:w-[90rem] xl:h-[40rem]">
       <ReactApexChart
         options={options}
         series={options.series}
@@ -55,7 +55,7 @@ const ChartLine = ({ data }: { data: DataPrevInt[] }) => {
         height={"100%"}
         type="line"
       />
-    </div>
+    </section>
   );
 };
 

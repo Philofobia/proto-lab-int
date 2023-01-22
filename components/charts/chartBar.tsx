@@ -14,6 +14,16 @@ const ChartBar = ({
   });
 
   const options: ApexOptions = {
+    theme: {
+      mode: "light",
+      palette: "palette1",
+      monochrome: {
+        enabled: false,
+        color: "#255aee",
+        shadeTo: "dark",
+        shadeIntensity: 0.65,
+      },
+    },
     chart: {
       type: "line",
       stacked: false,
@@ -77,15 +87,15 @@ const ChartBar = ({
   };
 
   return (
-  <div className="h-52 w-full mx-auto md:w-[45rem] md:h-[24rem]">
-    <ReactApexChart
-      options={options}
-      series={options.series}
-      width={"100%"}
-      height={"100%"}
-      type="line"
-    />
-  </div>
+    <section className="h-52 w-full mx-auto lg:w-[60rem] lg:h-[32rem] xl:w-[90rem] xl:h-[40rem]">
+      <ReactApexChart
+        options={options}
+        series={options.series}
+        width={"100%"}
+        height={"100%"}
+        type="line"
+      />
+    </section>
   );
 };
 
