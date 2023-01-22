@@ -25,7 +25,7 @@ export default function Region({
           <li>{regione.regione.nomeRegione}</li>
         </ul>
       </div>
-      <hr className="my-5" />
+      <div className="divider my-5 px-2"></div> 
       <section className="mx-2 text-justify">
         {regione.regione.descrizioneRegione}
       </section>
@@ -38,8 +38,8 @@ export default function Region({
         <ChartBar data={datiGrafico} provenienza="WORLD"/>
       </section>
       <section className="mx-2 flex flex-wrap gap-5">
-        {regione.province.map((prov) => (
-          <div className="card w-96 bg-base-100 shadow-xl border">
+        {regione.province.map((prov, index) => (
+          <div className="card w-96 bg-base-100 shadow-xl border" key={index}>
             <div className="card-body text-justify">
               <Link
                 href={`${regione.regione.nomeRegione}/prov/${prov}`}

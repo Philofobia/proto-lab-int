@@ -28,7 +28,7 @@ export default function Prov({
           <li>{prov.provincia.nomeProvincia}</li>
         </ul>
       </div>
-      <hr className="my-5" />
+      <div className="divider my-5 px-2"></div> 
       <section className="mx-2 text-justify">
         <figure>
           <img src="da inserire" alt={`foto ${prov.provincia.nomeProvincia}`} />

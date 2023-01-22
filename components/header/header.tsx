@@ -51,13 +51,13 @@ const Header = ({ navigationData }: { navigationData: RegioneInt[] }) => {
           Home
         </Link>
         <Link
-          href="/statistics"
+          href="/statistiche"
           className="mr-5 font-title antialiasing text-xl350 hover:text-primary"
         >
           Statistiche
         </Link>
         <Link
-          href="/previsions"
+          href="/previsioni"
           className="mr-5 font-title antialiasing text-xl350 hover:text-primary"
         >
           Previsioni
@@ -92,7 +92,7 @@ const Header = ({ navigationData }: { navigationData: RegioneInt[] }) => {
           </ul>
         </div>
             <Link
-              href="/aboutUs"
+              href="/chiSiamo"
               className="mr-5 font-title antialiasing text-xl350 hover:text-primary"
             >
               Chi siamo

@@ -33,7 +33,6 @@ export const ChartBarStatistiche = ({ data }: { data: DataInt[] }) => {
     xaxis: {
       categories: data
         .map((el) => el.annoMese)
-        .filter((value, index, self) => self.indexOf(value) === index),
     },
     yaxis: {
       title: {
@@ -55,7 +54,7 @@ export const ChartBarStatistiche = ({ data }: { data: DataInt[] }) => {
   };
 
   return (
-    <div className="h-52 w-full mx-auto md:w-[45rem] md:h-[24rem]">
+    <div className="h-52 w-full mx-auto lg:w-[60rem] lg:h-[32rem] xl:w-[90rem] xl:h.[40rem]">
       <ReactApexChart
         options={options}
         series={options.series}

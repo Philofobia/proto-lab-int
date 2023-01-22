@@ -1,16 +1,15 @@
 import { ReactElement } from "react";
 import Head from "next/head";
-import Link from "next/link";
 
 export default function Home() {
   return (
     <main className="mt-[80px] mb-[50px]">
-      <h1 className="text-center text-title text-4xl">
+      <h2 className="text-center text-title text-5xl">
         <strong>TRAVEL TREND</strong>
-      </h1>
-      <h2 className="text-center text-title text-2xl">
-        <em>Search where everyone is going</em>
       </h2>
+      <h1 className="text-center text-title text-2xl">
+        <em>statistiche e analisi viaggi</em>
+      </h1>
       <hr className="my-5" />
       <p className="text-justify text-body mx-3 my-5">
         Il settore dei viaggi e delle prenotazioni in Italia è in continua

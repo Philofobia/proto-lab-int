@@ -7,6 +7,7 @@ const AboutUs = () => {
       <h1 className="text-center text-title text-4xl">
         <strong>Chi siamo</strong>
       </h1>
+      <div className="divider my-5 px-2"></div>
     </main>
   );
 };
@@ -37,16 +38,8 @@ AboutUs.getLayout = function PageLayout(page: ReactElement) {
         />
 
         <link rel="canonical" href="index.html" />
-        <link
-          rel="alternate"
-          hrefLang="it"
-          href="index.html"
-        />
-        <link
-          rel="alternate"
-          href="index.html"
-          hrefLang="x-default"
-        />
+        <link rel="alternate" hrefLang="it" href="index.html" />
+        <link rel="alternate" href="index.html" hrefLang="x-default" />
 
         <meta property="og:type" content="business.business" />
         <meta
@@ -54,10 +47,7 @@ AboutUs.getLayout = function PageLayout(page: ReactElement) {
           content="Travel Trend: statistiche e analisi viaggi"
         />
         <meta property="og:url" content="index.html" />
-        <meta
-          property="og:image"
-          content="DA AGGIORNARE"
-        />
+        <meta property="og:image" content="DA AGGIORNARE" />
         <meta
           property="og:title"
           content="Travel Trend: statistiche e analisi viaggi."
@@ -75,51 +65,15 @@ AboutUs.getLayout = function PageLayout(page: ReactElement) {
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Parisi Marco" />
 
-        <link
-          rel="apple-touch-icon"
-          sizes="57x57"
-          href="Da aggiornare"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="60x60"
-          href="Da aggiornare"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="72x72"
-          href="Da aggiornare"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="76x76"
-          href="Da aggiornare"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="114x114"
-          href="Da aggiornare"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="120x120"
-          href="Da aggiornare"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="144x144"
-          href="Da aggiornare"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="152x152"
-          href="Da aggiornare"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="Da aggiornare"
-        />
+        <link rel="apple-touch-icon" sizes="57x57" href="Da aggiornare" />
+        <link rel="apple-touch-icon" sizes="60x60" href="Da aggiornare" />
+        <link rel="apple-touch-icon" sizes="72x72" href="Da aggiornare" />
+        <link rel="apple-touch-icon" sizes="76x76" href="Da aggiornare" />
+        <link rel="apple-touch-icon" sizes="114x114" href="Da aggiornare" />
+        <link rel="apple-touch-icon" sizes="120x120" href="Da aggiornare" />
+        <link rel="apple-touch-icon" sizes="144x144" href="Da aggiornare" />
+        <link rel="apple-touch-icon" sizes="152x152" href="Da aggiornare" />
+        <link rel="apple-touch-icon" sizes="180x180" href="Da aggiornare" />
         <link
           rel="icon"
           type="image/png"
@@ -132,48 +86,13 @@ AboutUs.getLayout = function PageLayout(page: ReactElement) {
           sizes="144x144"
           href="Da aggiornare"
         />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="96x96"
-          href="Da aggiornare"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="72x72"
-          href="Da aggiornare"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="48x48"
-          href="Da aggiornare"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="36x36"
-          href="Da aggiornare"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="Da aggiornare"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="96x96"
-          href="Da aggiornare"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="Da aggiornare"
-        />
+        <link rel="icon" type="image/png" sizes="96x96" href="Da aggiornare" />
+        <link rel="icon" type="image/png" sizes="72x72" href="Da aggiornare" />
+        <link rel="icon" type="image/png" sizes="48x48" href="Da aggiornare" />
+        <link rel="icon" type="image/png" sizes="36x36" href="Da aggiornare" />
+        <link rel="icon" type="image/png" sizes="32x32" href="Da aggiornare" />
+        <link rel="icon" type="image/png" sizes="96x96" href="Da aggiornare" />
+        <link rel="icon" type="image/png" sizes="16x16" href="Da aggiornare" />
       </Head>
       {page}
     </>

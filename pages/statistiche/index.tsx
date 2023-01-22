@@ -1,10 +1,11 @@
 import Head from "next/head";
-import { ReactElement, useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import Link from "next/link";
 import { DataInt, formParamsInt, RegioneInt } from "../../types/types";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { useRouter } from "next/router";
 import ChartBarStatistiche from "../../components/charts/chartBarStatistiche";
+import { splitArrayOfObjects } from "../../logicFunctions/logicFunctions";
 
 const Chart = ({
   regioni,
@@ -14,6 +15,13 @@ const Chart = ({
   resData: DataInt[] | undefined;
 }) => {
   const router = useRouter();
+  const [resDataMonYear, setResDataMonYear] = useState<DataInt[][]>();
+
+  useEffect(() => {
+    if (resData?.length !== 0 && resData![0].annoMese.length > 4) {
+      setResDataMonYear(splitArrayOfObjects(resData!, 12));
+    }
+  }, [resData]);
 
   const handleQueryParams = (e: any) => {
     e.preventDefault();
@@ -50,7 +58,7 @@ const Chart = ({
           <li>Grafici</li>
         </ul>
       </div>
-      <hr className="my-5" />
+      <div className="divider my-5 px-2"></div>
       <section className="mx-2 text-justify">
         <form onSubmit={handleQueryParams} className="w-full h-full">
           <div className="card shadow-xl bg-neutral h-[450px]">
@@ -121,9 +129,16 @@ const Chart = ({
           </div>
         </form>
       </section>
-      <hr className="my-5" />
+      <div className="divider my-9 px-2"></div>
       {resData?.length !== 0 ? (
-        <ChartBarStatistiche data={resData!} />
+        resData![0].annoMese.length === 4 ? (
+          <ChartBarStatistiche data={resData!} />
+        ) : (
+          resDataMonYear !== undefined &&
+          resDataMonYear!.map((dataYear, index) => (
+            <ChartBarStatistiche data={dataYear} key={index} />
+          ))
+        )
       ) : (
         <div className="alert alert-info shadow-lg w-[90%] mx-auto">
           <div>

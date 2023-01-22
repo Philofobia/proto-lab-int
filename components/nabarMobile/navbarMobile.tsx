@@ -28,7 +28,7 @@ const NavbarMobile = ({ navigationData }: { navigationData: RegioneInt[] }) => {
           </li>
           <li>
             <Link
-              href="/statistics"
+              href="/statistiche"
               className="btn btn-ghost w-full text-xl"
               onClick={switchNavbar}
             >
@@ -67,7 +67,7 @@ const NavbarMobile = ({ navigationData }: { navigationData: RegioneInt[] }) => {
           ))}
           <li>
             <Link
-              href="/aboutUs"
+              href="/chiSiamo"
               className="btn btn-ghost w-full text-xl"
               onClick={switchNavbar}
             >
