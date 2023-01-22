@@ -17,42 +17,31 @@ export default function Region({
       <h1 className="text-center text-title text-4xl">
         <strong>{regione.regione.nomeRegione}</strong>
       </h1>
-      <div className="text-sm breadcrumbs mt-1 ml-3">
+      <section className="text-sm breadcrumbs mt-1 ml-3">
         <ul>
           <li>
             <Link href="/">Home</Link>
           </li>
           <li>{regione.regione.nomeRegione}</li>
         </ul>
-      </div>
-      <div className="divider my-5 px-2"></div> 
+      </section>
+      <div className="divider my-5 px-2"></div>
       <section className="mx-2 text-justify">
         {regione.regione.descrizioneRegione}
       </section>
       <section className="mx-2 my-5">
-        <h3 className="text-center text-title text-2xl">Statistiche delle presenze totali</h3>
-        <ChartBar data={datiGrafico} provenienza="WRL_X_ITA"/>
-        <h3 className="text-center text-title text-2xl">Statistiche delle presenze italiane</h3>
-        <ChartBar data={datiGrafico} provenienza="IT"/>
-        <h3 className="text-center text-title text-2xl">Statistiche delle presenze estere</h3>
-        <ChartBar data={datiGrafico} provenienza="WORLD"/>
-      </section>
-      <section className="mx-2 flex flex-wrap gap-5">
-        {regione.province.map((prov, index) => (
-          <div className="card w-96 bg-base-100 shadow-xl border" key={index}>
-            <div className="card-body text-justify">
-              <Link
-                href={`${regione.regione.nomeRegione}/prov/${prov}`}
-                className="btn mx-2"
-              >
-                {prov}
-              </Link>
-            </div>
-            <figure>
-              <img src="perOraNulla" alt={`foto ${prov}`} />
-            </figure>
-          </div>
-        ))}
+        <h3 className="text-center text-title text-2xl">
+          Statistiche delle presenze totali
+        </h3>
+        <ChartBar data={datiGrafico} provenienza="WRL_X_ITA" />
+        <h3 className="text-center text-title text-2xl">
+          Statistiche delle presenze italiane
+        </h3>
+        <ChartBar data={datiGrafico} provenienza="IT" />
+        <h3 className="text-center text-title text-2xl">
+          Statistiche delle presenze estere
+        </h3>
+        <ChartBar data={datiGrafico} provenienza="WORLD" />
       </section>
     </main>
   );
@@ -105,11 +94,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-const addProductJsonLd = () => {
-  return {
-    __html: ``,
-  };
-};
 Region.getLayout = function PageLayout(page: ReactElement) {
   return (
     <>
@@ -120,16 +104,6 @@ Region.getLayout = function PageLayout(page: ReactElement) {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1"
         />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={addProductJsonLd()}
-          key="product-jsonld"
-        />
-
-        <link rel="canonical" href="index.html" />
-        <link rel="alternate" hrefLang="it" href="index.html" />
-        <link rel="alternate" href="index.html" hrefLang="x-default" />
 
         <meta property="og:type" content="business.business" />
         <meta
@@ -142,15 +116,25 @@ Region.getLayout = function PageLayout(page: ReactElement) {
           property="og:title"
           content="Travel Trend: statistiche e analisi viaggi."
         />
-        <meta property="og:description" content="DA AGGIORNARE" />
+        <meta
+          property="og:description"
+          content="Scopri tutte le statistiche e predizioni turistiche sulle presenze e arrivi in Sardegna"
+        />
 
+        <meta
+          property="business:contact_data:street_address"
+          content="Via Jacopo Durandi 10"
+        />
         <meta property="business:contact_data:locality" content="Torino" />
-        <meta property="business:contact_data:region" content="Torino" />
+        <meta property="business:contact_data:region" content="Piemonte" />
         <meta property="business:contact_data:postal_code" content="10143" />
         <meta property="business:contact_data:country_name" content="Italy" />
 
         <title>Travel Trend - Statistiche e analisi viaggi.</title>
-        <meta name="description" content="" />
+        <meta
+          name="description"
+          content="Scopri tutte le statistiche e predizioni turistiche sulle presenze e arrivi in Sardegna"
+        />
 
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Parisi Marco" />

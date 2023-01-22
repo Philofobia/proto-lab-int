@@ -28,7 +28,7 @@ export default function Prov({
           <li>{prov.provincia.nomeProvincia}</li>
         </ul>
       </div>
-      <div className="divider my-5 px-2"></div> 
+      <div className="divider my-5 px-2"></div>
       <section className="mx-2 text-justify">
         <figure>
           <img src="da inserire" alt={`foto ${prov.provincia.nomeProvincia}`} />
@@ -102,11 +102,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-const addProductJsonLd = () => {
-  return {
-    __html: ``,
-  };
-};
 Prov.getLayout = function PageLayout(page: ReactElement) {
   return (
     <>
@@ -116,12 +111,6 @@ Prov.getLayout = function PageLayout(page: ReactElement) {
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1"
-        />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={addProductJsonLd()}
-          key="product-jsonld"
         />
 
         <link rel="canonical" href="index.html" />
@@ -139,15 +128,25 @@ Prov.getLayout = function PageLayout(page: ReactElement) {
           property="og:title"
           content="Travel Trend: statistiche e analisi viaggi."
         />
-        <meta property="og:description" content="DA AGGIORNARE" />
+        <meta
+          property="og:description"
+          content="Scopri tutte le statistiche e predizioni turistiche sulle presenze e arrivi in Sardegna"
+        />
 
+        <meta
+          property="business:contact_data:street_address"
+          content="Via Jacopo Durandi 10"
+        />
         <meta property="business:contact_data:locality" content="Torino" />
-        <meta property="business:contact_data:region" content="Torino" />
+        <meta property="business:contact_data:region" content="Piemonte" />
         <meta property="business:contact_data:postal_code" content="10143" />
         <meta property="business:contact_data:country_name" content="Italy" />
 
         <title>Travel Trend - Statistiche e analisi viaggi.</title>
-        <meta name="description" content="" />
+        <meta
+          name="description"
+          content="Scopri tutte le statistiche e predizioni turistiche sulle presenze e arrivi in Sardegna"
+        />
 
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Parisi Marco" />

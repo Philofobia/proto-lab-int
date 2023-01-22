@@ -10,7 +10,7 @@ export default function Home() {
       <h1 className="text-center text-title text-2xl">
         <em>statistiche e analisi viaggi</em>
       </h1>
-      <hr className="my-5" />
+      <div className="divider my-5 px-2"></div>
       <p className="text-justify text-body mx-3 my-5">
         Il settore dei viaggi e delle prenotazioni in Italia è in continua
         evoluzione, con nuovi trend che emergono continuamente. Un sito di
@@ -42,46 +42,28 @@ export default function Home() {
 const addProductJsonLd = () => {
   return {
     __html: `{
-    "@context": "https://nomesito.html/",
-    "@type": "Product",
+    "@context": "https://travelTrend.html/",
+    "@type": "website",
     "name": "Travel Trends",
     "image": [
       "https://example.com/photos/1x1/photo.jpg",
       "https://example.com/photos/4x3/photo.jpg",
       "https://example.com/photos/16x9/photo.jpg"
      ],
-    "description": "Sleeker than ACME's Classic Anvil, the Executive Anvil is perfect for the business traveler looking for something to drop from a height.",
-    "sku": "0446310786",
-    "mpn": "925872",
+    "description": "Scopri tutte le statistiche e predizioni turistiche sulle presenze e arrivi in Sardegna",
     "brand": {
-      "@type": "Brand",
-      "name": "ACME"
+      "@type": "Web Agency",
+      "name": "Travel Trend",
+      "streetAddress": "Via Jacopo Durandi 10",
+      "addressLocality": "Torino",
+      "addressRegion": "Piemonte",
+      "postalCode": "10123",
+      "addressCountry": "Italy"
     },
-    "review": {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "4",
-        "bestRating": "5"
-      },
       "author": {
         "@type": "Person",
-        "name": "Fred Benson"
+        "name": "Marco Parisi"
       }
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.4",
-      "reviewCount": "89"
-    },
-    "offers": {
-      "@type": "Offer",
-      "url": "https://example.com/anvil",
-      "priceCurrency": "USD",
-      "price": "119.99",
-      "priceValidUntil": "2020-11-20",
-      "itemCondition": "https://schema.org/UsedCondition",
-      "availability": "https://schema.org/InStock"
     }
   }
 `,
@@ -106,16 +88,8 @@ Home.getLayout = function PageLayout(page: ReactElement) {
         />
 
         <link rel="canonical" href="index.html" />
-        <link
-          rel="alternate"
-          hrefLang="it"
-          href="index.html"
-        />
-        <link
-          rel="alternate"
-          href="index.html"
-          hrefLang="x-default"
-        />
+        <link rel="alternate" hrefLang="it" href="index.html" />
+        <link rel="alternate" href="index.html" hrefLang="x-default" />
 
         <meta property="og:type" content="business.business" />
         <meta
@@ -123,72 +97,37 @@ Home.getLayout = function PageLayout(page: ReactElement) {
           content="Travel Trend: statistiche e analisi viaggi"
         />
         <meta property="og:url" content="index.html" />
-        <meta
-          property="og:image"
-          content="DA AGGIORNARE"
-        />
+        <meta property="og:image" content="DA AGGIORNARE" />
         <meta
           property="og:title"
           content="Travel Trend: statistiche e analisi viaggi."
         />
-        <meta property="og:description" content="DA AGGIORNARE" />
+        <meta property="og:description" content="Scopri tutte le statistiche e predizioni turistiche sulle presenze e arrivi in Sardegna" />
 
+        <meta
+          property="business:contact_data:street_address"
+          content="Via Jacopo Durandi 10"
+        />
         <meta property="business:contact_data:locality" content="Torino" />
-        <meta property="business:contact_data:region" content="Torino" />
+        <meta property="business:contact_data:region" content="Piemonte" />
         <meta property="business:contact_data:postal_code" content="10143" />
         <meta property="business:contact_data:country_name" content="Italy" />
 
         <title>Travel Trend - Statistiche e analisi viaggi.</title>
-        <meta name="description" content="" />
+        <meta name="description" content="Scopri tutte le statistiche e predizioni turistiche sulle presenze e arrivi in Sardegna" />
 
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Parisi Marco" />
 
-        <link
-          rel="apple-touch-icon"
-          sizes="57x57"
-          href="Da aggiornare"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="60x60"
-          href="Da aggiornare"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="72x72"
-          href="Da aggiornare"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="76x76"
-          href="Da aggiornare"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="114x114"
-          href="Da aggiornare"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="120x120"
-          href="Da aggiornare"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="144x144"
-          href="Da aggiornare"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="152x152"
-          href="Da aggiornare"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="Da aggiornare"
-        />
+        <link rel="apple-touch-icon" sizes="57x57" href="Da aggiornare" />
+        <link rel="apple-touch-icon" sizes="60x60" href="Da aggiornare" />
+        <link rel="apple-touch-icon" sizes="72x72" href="Da aggiornare" />
+        <link rel="apple-touch-icon" sizes="76x76" href="Da aggiornare" />
+        <link rel="apple-touch-icon" sizes="114x114" href="Da aggiornare" />
+        <link rel="apple-touch-icon" sizes="120x120" href="Da aggiornare" />
+        <link rel="apple-touch-icon" sizes="144x144" href="Da aggiornare" />
+        <link rel="apple-touch-icon" sizes="152x152" href="Da aggiornare" />
+        <link rel="apple-touch-icon" sizes="180x180" href="Da aggiornare" />
         <link
           rel="icon"
           type="image/png"
@@ -201,48 +140,13 @@ Home.getLayout = function PageLayout(page: ReactElement) {
           sizes="144x144"
           href="Da aggiornare"
         />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="96x96"
-          href="Da aggiornare"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="72x72"
-          href="Da aggiornare"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="48x48"
-          href="Da aggiornare"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="36x36"
-          href="Da aggiornare"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="Da aggiornare"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="96x96"
-          href="Da aggiornare"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="Da aggiornare"
-        />
+        <link rel="icon" type="image/png" sizes="96x96" href="Da aggiornare" />
+        <link rel="icon" type="image/png" sizes="72x72" href="Da aggiornare" />
+        <link rel="icon" type="image/png" sizes="48x48" href="Da aggiornare" />
+        <link rel="icon" type="image/png" sizes="36x36" href="Da aggiornare" />
+        <link rel="icon" type="image/png" sizes="32x32" href="Da aggiornare" />
+        <link rel="icon" type="image/png" sizes="96x96" href="Da aggiornare" />
+        <link rel="icon" type="image/png" sizes="16x16" href="Da aggiornare" />
       </Head>
       {page}
     </>

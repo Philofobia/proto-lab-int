@@ -179,7 +179,7 @@ export const getServerSideProps: GetServerSideProps = async (
   };
 
   let response, researchResponse;
-  if (objData === undefined) {
+  if (Object.values(objData).every((val) => val === undefined)) {
     response = await fetch(`http://localhost:9999/regioni`);
   } else if (objData.provincia === "none") {
     [response, researchResponse] = await Promise.all([
@@ -212,16 +212,12 @@ export const getServerSideProps: GetServerSideProps = async (
 
   let researchData: DataInt[] = [];
   if (objData.filtroTempo === "anno" && researchDataUnclean !== undefined) {
-    researchData = researchDataUnclean.filter(
-      (el) => el.annoMese.length === 4
-    );
+    researchData = researchDataUnclean.filter((el) => el.annoMese.length === 4);
   } else if (
     objData.filtroTempo === "annoMese" &&
     researchDataUnclean !== undefined
   ) {
-    researchData = researchDataUnclean.filter(
-      (el) => el.annoMese.length !== 4
-    );
+    researchData = researchDataUnclean.filter((el) => el.annoMese.length !== 4);
   }
 
   return {
@@ -229,12 +225,6 @@ export const getServerSideProps: GetServerSideProps = async (
       regioni: data,
       resData: researchData,
     },
-  };
-};
-
-const addProductJsonLd = () => {
-  return {
-    __html: ``,
   };
 };
 
@@ -247,12 +237,6 @@ ChartStatistiche.getLayout = function PageLayout(page: ReactElement) {
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1"
-        />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={addProductJsonLd()}
-          key="product-jsonld"
         />
 
         <link rel="canonical" href="index.html" />
@@ -270,15 +254,25 @@ ChartStatistiche.getLayout = function PageLayout(page: ReactElement) {
           property="og:title"
           content="Travel Trend: statistiche e analisi viaggi."
         />
-        <meta property="og:description" content="DA AGGIORNARE" />
+        <meta
+          property="og:description"
+          content="Scopri tutte le statistiche e predizioni turistiche sulle presenze e arrivi in Sardegna"
+        />
 
+        <meta
+          property="business:contact_data:street_address"
+          content="Via Jacopo Durandi 10"
+        />
         <meta property="business:contact_data:locality" content="Torino" />
-        <meta property="business:contact_data:region" content="Torino" />
+        <meta property="business:contact_data:region" content="Piemonte" />
         <meta property="business:contact_data:postal_code" content="10143" />
         <meta property="business:contact_data:country_name" content="Italy" />
 
         <title>Travel Trend - Statistiche e analisi viaggi.</title>
-        <meta name="description" content="" />
+        <meta
+          name="description"
+          content="Scopri tutte le statistiche e predizioni turistiche sulle presenze e arrivi in Sardegna"
+        />
 
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Parisi Marco" />

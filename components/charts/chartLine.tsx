@@ -18,7 +18,7 @@ const ChartLine = ({ data }: { data: DataPrevInt[] }) => {
       enabled: false,
     },
     stroke: {
-      curve: "straight",
+      curve: "smooth",
     },
     title: {
       text: "Previsioni Presenze turistiche",
