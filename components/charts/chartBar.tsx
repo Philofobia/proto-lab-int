@@ -2,7 +2,7 @@ import { DataInt } from "../../types/types";
 import { ApexOptions } from "apexcharts";
 import dynamic from "next/dynamic";
 
-export const ChartBar = ({
+const ChartBar = ({
   data,
   provenienza,
 }: {

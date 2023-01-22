@@ -19,7 +19,7 @@ const NavbarMobile = ({ navigationData }: { navigationData: RegioneInt[] }) => {
           </li>
           <li>
             <Link
-              href="/previsions"
+              href="/previsioni"
               className="btn btn-ghost w-full text-xl"
               onClick={switchNavbar}
             >

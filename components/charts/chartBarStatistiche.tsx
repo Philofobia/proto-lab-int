@@ -2,7 +2,7 @@ import { DataInt } from "../../types/types";
 import { ApexOptions } from "apexcharts";
 import dynamic from "next/dynamic";
 
-export const ChartBarStatistiche = ({ data }: { data: DataInt[] }) => {
+const ChartBarStatistiche = ({ data }: { data: DataInt[] }) => {
   const ReactApexChart = dynamic(() => import("react-apexcharts"), {
     ssr: false,
   });

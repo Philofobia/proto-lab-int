@@ -12,6 +12,14 @@ export interface RegioneInt {
   province: string[];
 }
 
+export interface provInt {
+  regione: string;
+  provincia: {id: number;
+  regione: number;
+  nomeProvincia: string;
+  descrizioneProvincia: string;}
+}
+//DATA
 export interface DataInt {
   id: number;
   tipologiaDato: string;
@@ -20,12 +28,10 @@ export interface DataInt {
   annoMese: string;
   valore: number;
 }
-export interface provInt {
-  regione: string;
-  provincia: {id: number;
-  regione: number;
-  nomeProvincia: string;
-  descrizioneProvincia: string;}
+
+export interface DataPrevInt {
+  anno: string;
+  valore: number;
 }
 
 //LAYOUT

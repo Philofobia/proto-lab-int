@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import ChartBarStatistiche from "../../components/charts/chartBarStatistiche";
 import { splitArrayOfObjects } from "../../logicFunctions/logicFunctions";
 
-const Chart = ({
+const ChartStatistiche = ({
   regioni,
   resData,
 }: {
@@ -55,7 +55,7 @@ const Chart = ({
           <li>
             <Link href="/">Home</Link>
           </li>
-          <li>Grafici</li>
+          <li>Statistiche</li>
         </ul>
       </div>
       <div className="divider my-5 px-2"></div>
@@ -163,7 +163,7 @@ const Chart = ({
   );
 };
 
-export default Chart;
+export default ChartStatistiche;
 
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
@@ -171,7 +171,7 @@ export const getServerSideProps: GetServerSideProps = async (
   const { query } = context;
   const objData: formParamsInt = {
     regione: query["regione"]?.toString().toLowerCase(),
-    provincia: query["provincia"]?.toString().toLowerCase(),
+    provincia: query["provincia"]?.toString().toLowerCase().replace(" ", "_"),
     tipoAlloggio: query["tipoAlloggio"],
     provenienza: query["provenienza"],
     tipologiaDato: query["tipologiaDato"],
@@ -197,29 +197,29 @@ export const getServerSideProps: GetServerSideProps = async (
     ]);
   }
 
-  let [data, reasearchDataUnclean]: [RegioneInt[], DataInt[] | undefined] = [
+  let [data, researchDataUnclean]: [RegioneInt[], DataInt[] | undefined] = [
     [],
     [],
   ];
   if (researchResponse === undefined) {
     data = await response.json();
   } else {
-    [data, reasearchDataUnclean] = await Promise.all([
+    [data, researchDataUnclean] = await Promise.all([
       response.json(),
       researchResponse.json(),
     ]);
   }
 
   let researchData: DataInt[] = [];
-  if (objData.filtroTempo === "anno" && reasearchDataUnclean !== undefined) {
-    researchData = reasearchDataUnclean.filter(
+  if (objData.filtroTempo === "anno" && researchDataUnclean !== undefined) {
+    researchData = researchDataUnclean.filter(
       (el) => el.annoMese.length === 4
     );
   } else if (
     objData.filtroTempo === "annoMese" &&
-    reasearchDataUnclean !== undefined
+    researchDataUnclean !== undefined
   ) {
-    researchData = reasearchDataUnclean.filter(
+    researchData = researchDataUnclean.filter(
       (el) => el.annoMese.length !== 4
     );
   }
@@ -238,7 +238,7 @@ const addProductJsonLd = () => {
   };
 };
 
-Chart.getLayout = function PageLayout(page: ReactElement) {
+ChartStatistiche.getLayout = function PageLayout(page: ReactElement) {
   return (
     <>
       <Head>
