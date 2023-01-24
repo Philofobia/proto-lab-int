@@ -1,0 +1,29 @@
+#blob-two {
+    background: url(/images/blobs/blob-two.svg) no-repeat;
+    background-size: 45em;
+    background-position: top -8em right -18em;
+}
+
+#blob-one {
+    background: url(/images/blobs/blob.svg) no-repeat;
+    background-size: 15em;
+    background-position: top 13em left -8em;
+}
+
+@media (min-width: 640px) {
+    #blob-one {
+        background-size: 20em;
+        background-position: top 0em left -10em;
+    }
+    #blob-two {
+        background-size: 55em;
+        background-position: top -10em right -20em;
+    }
+}
+
+@media (min-width: 768px) {
+    #blob-two {
+        background-size: 65em;
+        background-position: top -12em right -25em;
+    }
+}

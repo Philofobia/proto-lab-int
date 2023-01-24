@@ -50,16 +50,16 @@ const ChartStatistiche = ({
       <h1 className="text-center text-title text-4xl">
         <strong>Statistiche</strong>
       </h1>
-      <div className="text-sm breadcrumbs mt-1 ml-3">
+      <section className="text-sm breadcrumbs mt-1 ml-3">
         <ul>
           <li>
             <Link href="/">Home</Link>
           </li>
           <li>Statistiche</li>
         </ul>
-      </div>
+      </section>
       <div className="divider my-5 px-2"></div>
-      <section className="text-justify text-body mx-3 my-5">
+      <section className="text-justify text-body mx-3 my-5 blob-one">
         <p>
           Il form per visualizzare i grafici dell'afflusso turistico o delle
           presenze turistiche in Sardegna è uno strumento che consente di

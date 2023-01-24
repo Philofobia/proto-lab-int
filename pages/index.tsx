@@ -1,43 +1,120 @@
 import { ReactElement } from "react";
 import Head from "next/head";
 
-export default function Home() {
+const Home = () => {
   return (
-    <main className="mt-[80px] mb-[50px]">
+    <main className="mt-[80px] mb-[50px]" id="blob-two">
       <h2 className="text-center text-title text-5xl">
         <strong>TRAVEL TREND</strong>
       </h2>
       <h1 className="text-center text-title text-2xl">
         <em>statistiche e analisi viaggi</em>
       </h1>
-      <div className="divider my-5 px-2"></div>
-      <p className="text-justify text-body mx-3 my-5">
-        Il settore dei viaggi e delle prenotazioni in Italia è in continua
-        evoluzione, con nuovi trend che emergono continuamente. Un sito di
-        analisi e previsioni dati per questo settore può offrire una vasta gamma
-        di informazioni utili per comprendere meglio come si sta evolvendo il
-        mercato e come prevedere gli sviluppi futuri.
-      </p>
-      <p className="text-justify text-body mx-3 my-5">
-        Un sito di questo tipo potrebbe raccogliere dati da diverse fonti, tra
-        cui i principali siti di prenotazione alberghiera, i siti di viaggio, i
-        dati demografici e le statistiche di mercato. Utilizzando questi dati,
-        il sito potrebbe generare analisi dettagliate sulle tendenze del
-        mercato, come ad esempio i periodi dell'anno in cui le prenotazioni sono
-        più alte, le destinazioni più popolari e i prezzi più competitivi.
-      </p>
-      <p className="text-justify text-body mx-3 my-5">
-        Inoltre, un sito di analisi e previsioni dati per il settore viaggi e
-        prenotazioni in Italia potrebbe fornire anche previsioni sugli sviluppi
-        futuri del mercato, come ad esempio l'effetto delle restrizioni sui
-        viaggi a causa della pandemia sulla domanda futura. Queste previsioni
-        possono essere utilizzate dalle aziende del settore per prendere
-        decisioni informate su come posizionarsi sul mercato e come adattarsi
-        alle tendenze in evoluzione.
-      </p>
+      <div className="divider my-5 mx-2"></div>
+      <section className="text-justify text-body" id="blob-one">
+        <p className="mx-5">
+          Il settore dei viaggi e delle prenotazioni in Italia è in continua
+          evoluzione, con nuovi trend che emergono continuamente. Un sito di
+          analisi e previsioni dati per questo settore può offrire una vasta
+          gamma di informazioni utili per comprendere meglio come si sta
+          evolvendo il mercato e come prevedere gli sviluppi futuri.
+        </p>
+        <p className="my-3 mx-5">
+          Un sito di questo tipo potrebbe raccogliere dati da diverse fonti, tra
+          cui i principali siti di prenotazione alberghiera, i siti di viaggio,
+          i dati demografici e le statistiche di mercato. Utilizzando questi
+          dati, il sito potrebbe generare analisi dettagliate sulle tendenze del
+          mercato, come ad esempio i periodi dell'anno in cui le prenotazioni
+          sono più alte, le destinazioni più popolari e i prezzi più
+          competitivi.
+        </p>
+        <p className="mx-5">
+          Inoltre, un sito di analisi e previsioni dati per il settore viaggi e
+          prenotazioni in Italia potrebbe fornire anche previsioni sugli
+          sviluppi futuri del mercato, come ad esempio l'effetto delle
+          restrizioni sui viaggi a causa della pandemia sulla domanda futura.
+          Queste previsioni possono essere utilizzate dalle aziende del settore
+          per prendere decisioni informate su come posizionarsi sul mercato e
+          come adattarsi alle tendenze in evoluzione.
+        </p>
+      </section>
+      {/* TRIAL AND ERROR */}
+      <section className="body-font overflow-hidden">
+        <div className="container px-5 py-24 mx-auto">
+          <div className="flex flex-wrap -m-12">
+            <div className="p-12 md:w-1/2 flex flex-col items-start">
+              <span className="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">
+                STATISTICHE
+              </span>
+              <h4 className="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">
+                Roof party normcore before they sold out, cornhole vape
+              </h4>
+              <p className="leading-relaxed mb-8">
+                Live-edge letterpress cliche, salvia fanny pack humblebrag
+                narwhal portland. VHS man braid palo santo hoodie brunch trust
+                fund. Bitters hashtag waistcoat fashion axe chia unicorn. Plaid
+                fixie chambray 90's, slow-carb etsy tumeric. Cray pug you
+                probably haven't heard of them hexagon kickstarter craft beer
+                pork chic.
+              </p>
+              <div className="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
+                <a className="text-indigo-500 inline-flex items-center">
+                  Learn More
+                  <svg
+                    className="w-4 h-4 ml-2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <div className="p-12 md:w-1/2 flex flex-col items-start">
+              <span className="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">
+                PREVISIONI
+              </span>
+              <h2 className="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">
+                Pinterest DIY dreamcatcher gentrify single-origin coffee
+              </h2>
+              <p className="leading-relaxed mb-8">
+                Live-edge letterpress cliche, salvia fanny pack humblebrag
+                narwhal portland. VHS man braid palo santo hoodie brunch trust
+                fund. Bitters hashtag waistcoat fashion axe chia unicorn. Plaid
+                fixie chambray 90's, slow-carb etsy tumeric.
+              </p>
+              <div className="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
+                <a className="text-indigo-500 inline-flex items-center">
+                  Learn More
+                  <svg
+                    className="w-4 h-4 ml-2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
-}
+};
+
+export default Home;
 
 const addProductJsonLd = () => {
   return {
@@ -102,7 +179,10 @@ Home.getLayout = function PageLayout(page: ReactElement) {
           property="og:title"
           content="Travel Trend: statistiche e analisi viaggi."
         />
-        <meta property="og:description" content="Scopri tutte le statistiche e predizioni turistiche sulle presenze e arrivi in Sardegna" />
+        <meta
+          property="og:description"
+          content="Scopri tutte le statistiche e predizioni turistiche sulle presenze e arrivi in Sardegna"
+        />
 
         <meta
           property="business:contact_data:street_address"
@@ -114,7 +194,10 @@ Home.getLayout = function PageLayout(page: ReactElement) {
         <meta property="business:contact_data:country_name" content="Italy" />
 
         <title>Travel Trend - Statistiche e analisi viaggi.</title>
-        <meta name="description" content="Scopri tutte le statistiche e predizioni turistiche sulle presenze e arrivi in Sardegna" />
+        <meta
+          name="description"
+          content="Scopri tutte le statistiche e predizioni turistiche sulle presenze e arrivi in Sardegna"
+        />
 
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Parisi Marco" />
