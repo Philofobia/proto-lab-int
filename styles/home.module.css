@@ -1,29 +1,99 @@
-#blob-two {
-    background: url(/images/blobs/blob-two.svg) no-repeat;
-    background-size: 45em;
-    background-position: top -8em right -18em;
+#blob {
+  position: relative;
+  overflow: hidden;
+  background: url(/images/blobs/blob-five.svg) no-repeat;
+  background-size: 35em;
+  background-position: left -15em;
 }
-
-#blob-one {
-    background: url(/images/blobs/blob.svg) no-repeat;
-    background-size: 15em;
-    background-position: top 13em left -8em;
+#blob::before {
+  background: url(/images/blobs/blob-two.svg) 0 0 no-repeat;
+  content: "";
+  position: absolute;
+  width: 70em;
+  height: 50em;
+  top: -10em;
+  right: -40em;
+  z-index: -1;
+}
+#blob::after {
+  background: url(/images/blobs/blob-ten.svg) 0 0 no-repeat;
+  content: "";
+  position: absolute;
+  width: 40em;
+  height: 40em;
+  top: 50em;
+  right: -15em;
+  z-index: -1;
 }
 
 @media (min-width: 640px) {
-    #blob-one {
-        background-size: 20em;
-        background-position: top 0em left -10em;
-    }
-    #blob-two {
-        background-size: 55em;
-        background-position: top -10em right -20em;
-    }
+  #blob-one {
+    background-size: 20em;
+    background-position: top 0em left -10em;
+  }
+  #blob::before {
+    width: 80em;
+    height: 60em;
+  }
+  #blob::after {
+    width: 50em;
+    height: 50em;
+    top: 40em;
+    right: -20em;
+  }
 }
 
 @media (min-width: 768px) {
-    #blob-two {
-        background-size: 65em;
-        background-position: top -12em right -25em;
-    }
+  #blob {
+    background-position: top 25em left -10em;
+  }
+  #blob::before {
+    top: -12em;
+  }
+  #blob::after {
+    top: 28em;
+    right: -20em;
+  }
+}
+
+@media (min-width: 1024px) {
+  #blob {
+    background: url(/images/complex/analysis-team-desk.svg) no-repeat;
+    background-size: 53%;
+    background-position: top 15vh right -3em;
+  }
+  #blob::before {
+    background: url(/images/blobs/blob-five.svg) 0 0 no-repeat;
+    top: -5em;
+    right: auto;
+    left: -27em;
+  }
+  #blob::after {
+    top: 32em;
+    right: -10em;
+  }
+}
+
+@media (min-width: 1280px) {
+  #blob {
+    background-size: 43em;
+  }
+  #blob::after {
+    background: url(/images/complex/hand-bars-skyscrapers.svg) no-repeat;
+    top: 50em;
+    left: 0;
+    background-size: 30em;
+  }
+}
+
+@media (min-width: 1536px) {
+  #blob {
+    background-size: 45em;
+    background-position: top 10vh right 2em;
+  }
+  #blob::after {
+    background-size: 35em;
+    top: 45em;
+    left: -2em;
+  }
 }

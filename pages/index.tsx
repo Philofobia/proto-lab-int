@@ -1,9 +1,10 @@
 import { ReactElement } from "react";
 import Head from "next/head";
+import Link from "next/link";
 
 const Home = () => {
   return (
-    <main className="mt-[80px] mb-[50px]" id="blob-two">
+    <main className="mt-[80px]" id="blob">
       <h2 className="text-center text-title text-5xl">
         <strong>TRAVEL TREND</strong>
       </h2>
@@ -11,8 +12,8 @@ const Home = () => {
         <em>statistiche e analisi viaggi</em>
       </h1>
       <div className="divider my-5 mx-2"></div>
-      <section className="text-justify text-body" id="blob-one">
-        <p className="mx-5">
+      <section className="text-justify text-body lg:h-[30em] lg:w-[60%]  lg:pt-[3em] xl:pt-[4em]">
+        <p className="mx-5 xl:inline-block">
           Il settore dei viaggi e delle prenotazioni in Italia è in continua
           evoluzione, con nuovi trend che emergono continuamente. Un sito di
           analisi e previsioni dati per questo settore può offrire una vasta
@@ -38,28 +39,37 @@ const Home = () => {
           come adattarsi alle tendenze in evoluzione.
         </p>
       </section>
-      {/* TRIAL AND ERROR */}
-      <section className="body-font overflow-hidden">
-        <div className="container px-5 py-24 mx-auto">
+      <div className="divider my-5 mx-2"></div>
+      <section className="body-font overflow-hidden mt-12 px-8 xl:w-[60%] xl:relative xl:right-[-30em]">
+        <div className="container px-5 py-12 mx-auto">
           <div className="flex flex-wrap -m-12">
-            <div className="p-12 md:w-1/2 flex flex-col items-start">
-              <span className="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">
+            <div className="px-5 md:w-1/2 flex flex-col items-start">
+              <span className="inline-block py-1 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">
                 STATISTICHE
               </span>
               <h4 className="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">
-                Roof party normcore before they sold out, cornhole vape
+                L'utilizzo delle fonti ufficiali dell'ISTAT per analizzare
+                l'impatto del turismo sull'isola
               </h4>
-              <p className="leading-relaxed mb-8">
-                Live-edge letterpress cliche, salvia fanny pack humblebrag
-                narwhal portland. VHS man braid palo santo hoodie brunch trust
-                fund. Bitters hashtag waistcoat fashion axe chia unicorn. Plaid
-                fixie chambray 90's, slow-carb etsy tumeric. Cray pug you
-                probably haven't heard of them hexagon kickstarter craft beer
-                pork chic.
+              <p className="leading-relaxed mb-4 text-justify">
+                Le fonti ufficiali dell'ISTAT sono una valida fonte di
+                informazioni per quanto riguarda le presenze e gli arrivi dei
+                turisti sull'isola. L'ISTAT pubblica periodicamente statistiche
+                sui flussi turistici, che includono dati sugli arrivi, le
+                presenze e le provenienze dei turisti. Queste informazioni
+                possono essere utilizzate per analizzare l'impatto del turismo
+                sull'economia dell'isola e per pianificare le attività di
+                promozione e sviluppo turistico. Inoltre, l'ISTAT fornisce anche
+                informazioni dettagliate sull'utilizzo delle strutture
+                ricettive, come alberghi, campeggi e case vacanza, che possono
+                essere utilizzate per valutare la capacità ricettiva dell'isola.
               </p>
-              <div className="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
-                <a className="text-indigo-500 inline-flex items-center">
-                  Learn More
+              <div className="flex items-center flex-wrap pb-4 mb-4 mt-auto w-full">
+                <Link
+                  className="text-indigo-500 inline-flex items-center"
+                  href="/statistiche"
+                >
+                  Guarda le statistiche
                   <svg
                     className="w-4 h-4 ml-2"
                     viewBox="0 0 24 24"
@@ -72,26 +82,32 @@ const Home = () => {
                     <path d="M5 12h14"></path>
                     <path d="M12 5l7 7-7 7"></path>
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
-
-            <div className="p-12 md:w-1/2 flex flex-col items-start">
-              <span className="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">
+            <div className="px-5 md:w-1/2 flex flex-col items-start">
+              <span className="inline-block py-1 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">
                 PREVISIONI
               </span>
-              <h2 className="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">
-                Pinterest DIY dreamcatcher gentrify single-origin coffee
-              </h2>
-              <p className="leading-relaxed mb-8">
-                Live-edge letterpress cliche, salvia fanny pack humblebrag
-                narwhal portland. VHS man braid palo santo hoodie brunch trust
-                fund. Bitters hashtag waistcoat fashion axe chia unicorn. Plaid
-                fixie chambray 90's, slow-carb etsy tumeric.
+              <h4 className="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">
+                Modelli predittivi avanzati per la pianificazione del turismo in
+                Sardegna
+              </h4>
+              <p className="leading-relaxed mb-4 text-justify">
+                Utilizziamo modelli predittivi avanzati basati sull'analisi dei
+                dati storici e delle tendenze attuali per fornirti previsioni
+                precise e affidabili sull'andamento futuro del turismo in
+                Sardegna. Questo ci permette di avere una visione completa delle
+                tendenze e di pianificare in anticipo le attività di promozione
+                e sviluppo turistico per sfruttare al meglio le opportunità e
+                affrontare eventuali sfide.
               </p>
-              <div className="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
-                <a className="text-indigo-500 inline-flex items-center">
-                  Learn More
+              <div className="flex items-center flex-wrap pb-4 mb-4 mt-auto w-full">
+                <Link
+                  className="text-indigo-500 inline-flex items-center"
+                  href="/previsioni"
+                >
+                  Guarda le previsioni
                   <svg
                     className="w-4 h-4 ml-2"
                     viewBox="0 0 24 24"
@@ -104,7 +120,7 @@ const Home = () => {
                     <path d="M5 12h14"></path>
                     <path d="M12 5l7 7-7 7"></path>
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
