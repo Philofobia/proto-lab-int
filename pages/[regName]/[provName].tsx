@@ -13,7 +13,7 @@ export default function Prov({
   datiGrafico: DataInt[];
 }) {
   return (
-    <main className="mt-[80px]">
+    <main className="mt-[80px]" id="blob-provName">
       <h1 className="text-center text-title text-4xl">
         <strong>{prov.provincia.nomeProvincia}</strong>
       </h1>
@@ -29,12 +29,12 @@ export default function Prov({
         </ul>
       </div>
       <div className="divider my-5 px-2"></div>
-      <section className="text-justify text-body mx-3 my-5">
+      <section className="text-justify text-body mx-3 my-5 lg:w-[30em] lg:relative lg:left-[50%]">
         {prov.provincia.descrizioneProvincia}
       </section>
       <div className="divider my-5 px-2"></div>
       <section className="mx-2 my-5">
-      <p className="text-justify text-body mx-3 my-5">
+      <p className="text-justify text-body mx-3 my-5 lg:w-[40em] lg:mx-auto lg:my-8">
           I grafici che mostrano l'andamento del numero di persone che viaggiano
           o sono presenti in {prov.provincia.nomeProvincia} sono divisi in tre categorie: popolazione
           estera, popolazione italiana e totale. La linea orizzontale

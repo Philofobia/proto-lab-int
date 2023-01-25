@@ -1,10 +1,11 @@
 import { ReactElement } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import "../styles/home.module.css";
 
 const Home = () => {
   return (
-    <main className="mt-[80px]" id="blob">
+    <main className="mt-[80px]" id="blob-home">
       <h2 className="text-center text-title text-5xl">
         <strong>TRAVEL TREND</strong>
       </h2>
@@ -44,7 +45,7 @@ const Home = () => {
         <div className="container px-5 py-12 mx-auto">
           <div className="flex flex-wrap -m-12">
             <div className="px-5 md:w-1/2 flex flex-col items-start">
-              <span className="inline-block py-1 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">
+              <span className="inline-block py-1 rounded bg-[#86a0e7] text-xs font-medium tracking-widest px-2">
                 STATISTICHE
               </span>
               <h4 className="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">
@@ -86,7 +87,7 @@ const Home = () => {
               </div>
             </div>
             <div className="px-5 md:w-1/2 flex flex-col items-start">
-              <span className="inline-block py-1 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">
+              <span className="inline-block py-1 rounded bg-[#86a0e7] text-xs font-medium tracking-widest px-2">
                 PREVISIONI
               </span>
               <h4 className="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">

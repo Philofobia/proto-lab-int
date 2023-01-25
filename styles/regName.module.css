@@ -1,0 +1,105 @@
+#blob-regName {
+  background: url(/images/blobs/blob-three.svg) no-repeat;
+  background-size: 30em;
+  background-position: top 32em left -10em;
+  overflow: hidden;
+  position: relative;
+}
+#blob-regName::before {
+  background: url(/images/blobs/blob-two.svg) 0 0 no-repeat;
+  content: "";
+  position: absolute;
+  width: 70em;
+  height: 50em;
+  top: -10em;
+  right: -40em;
+  z-index: -1;
+}
+#blob-regName::after {
+  background: url(/images/blobs/blob-nine.svg) no-repeat;
+  content: "";
+  position: absolute;
+  width: 50em;
+  height: 50em;
+  top: 50em;
+  right: -15em;
+  z-index: -1;
+}
+
+@media (min-width: 640px) {
+  #blob-regName {
+    background-size: 25em;
+    background-position: top 25em left -10em;
+  }
+  #blob-regName::before {
+    width: 70em;
+    height: 50em;
+    top: -7em;
+  }
+  #blob-regName::after {
+    width: 50em;
+    height: 50em;
+    top: 40em;
+    right: -20em;
+  }
+}
+
+@media (min-width: 768px) {
+  #blob-regName {
+    background-size: 30em;
+    background-position: top 35em left -10em;
+  }
+  #blob-regName::before {
+    top: -8em;
+  }
+  #blob-regName::after {
+    top: 42em;
+    right: -20em;
+  }
+}
+
+@media (min-width: 1024px) {
+  #blob-regName {
+    background: url(/images/complex/summer_landscape.svg) no-repeat;
+    background-size: 30em;
+    background-position: top 10em left 1em;
+  }
+  #blob-regName::before {
+    width: 100em;
+    height: 80em;
+    top: -15em;
+    right: -50em;
+  }
+  #blob-regName::after {
+    width: 60em;
+    height: 60em;
+    top: 60em;
+    right: auto;
+    left: -15em;
+  }
+}
+
+@media (min-width: 1280px) {
+  #blob-regName {
+    background-position: top 10em left 5em;
+  }
+}
+
+@media (min-width: 1536px) {
+  #blob-regName {
+    background-size: 35em;
+    background-position: top 7em left 5em;
+  }
+  #blob-regName::before {
+    width: 140em;
+    height: 120em;
+    top: -20em;
+    right: -70em;
+  }
+  #blob-regName::after {
+    width: 80em;
+    height: 80em;
+    top: 80em;
+    right: -35em;
+  }
+}

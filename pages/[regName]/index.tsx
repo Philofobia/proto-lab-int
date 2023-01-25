@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ReactElement } from "react";
 import { DataInt, RegioneInt } from "../../types/types";
 import ChartBar from "../../components/charts/chartBar";
+import "../../styles/regName.module.css"
 
 export default function Region({
   regione,
@@ -13,7 +14,7 @@ export default function Region({
   datiGrafico: DataInt[];
 }) {
   return (
-    <main className="mt-[80px] mb-[50px]">
+    <main className="mt-[80px]" id="blob-regName">
       <h1 className="text-center text-title text-4xl">
         <strong>{regione.regione.nomeRegione}</strong>
       </h1>
@@ -26,12 +27,12 @@ export default function Region({
         </ul>
       </section>
       <div className="divider my-5 px-2"></div>
-      <section className="text-justify text-body mx-3 my-5">
+      <section className="text-justify text-body mx-5 my-5 lg:w-[30em] lg:relative lg:left-[50%]">
         {regione.regione.descrizioneRegione}
       </section>
       <div className="divider my-5 px-2"></div>
       <section className="mx-2 my-5">
-        <p className="text-justify text-body mx-3 my-5">
+        <p className="text-justify text-body mx-3 my-5 lg:w-[40em] lg:mx-auto lg:my-8">
           I grafici che mostrano l'andamento del numero di persone che viaggiano
           o sono presenti in {regione.regione.nomeRegione} sono divisi in tre categorie: popolazione
           estera, popolazione italiana e totale. La linea orizzontale

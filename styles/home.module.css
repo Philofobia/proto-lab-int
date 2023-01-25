@@ -1,11 +1,11 @@
-#blob {
+#blob-home {
   position: relative;
   overflow: hidden;
   background: url(/images/blobs/blob-five.svg) no-repeat;
   background-size: 35em;
-  background-position: left -15em;
+  background-position: top 25em left -15em;
 }
-#blob::before {
+#blob-home::before {
   background: url(/images/blobs/blob-two.svg) 0 0 no-repeat;
   content: "";
   position: absolute;
@@ -15,7 +15,7 @@
   right: -40em;
   z-index: -1;
 }
-#blob::after {
+#blob-home::after {
   background: url(/images/blobs/blob-ten.svg) 0 0 no-repeat;
   content: "";
   position: absolute;
@@ -27,7 +27,7 @@
 }
 
 @media (min-width: 640px) {
-  #blob-one {
+  #blob-home {
     background-size: 20em;
     background-position: top 0em left -10em;
   }
@@ -44,31 +44,31 @@
 }
 
 @media (min-width: 768px) {
-  #blob {
+  #blob-home {
     background-position: top 25em left -10em;
   }
-  #blob::before {
+  #blob-home::before {
     top: -12em;
   }
-  #blob::after {
+  #blob-home::after {
     top: 28em;
     right: -20em;
   }
 }
 
 @media (min-width: 1024px) {
-  #blob {
+  #blob-home {
     background: url(/images/complex/analysis-team-desk.svg) no-repeat;
     background-size: 53%;
     background-position: top 15vh right -3em;
   }
-  #blob::before {
+  #blob-home::before {
     background: url(/images/blobs/blob-five.svg) 0 0 no-repeat;
     top: -5em;
     right: auto;
     left: -27em;
   }
-  #blob::after {
+  #blob-home::after {
     top: 32em;
     right: -10em;
   }
