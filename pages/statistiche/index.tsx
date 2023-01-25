@@ -6,6 +6,7 @@ import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { useRouter } from "next/router";
 import ChartBarStatistiche from "../../components/charts/chartBarStatistiche";
 import { splitArrayOfObjects } from "../../logicFunctions/logicFunctions";
+import ResearchPlaceholderStatistiche from "../../components/researchPlaceholder/ResearchPlaceholderStatistiche";
 
 const ChartStatistiche = ({
   regioni,
@@ -46,7 +47,7 @@ const ChartStatistiche = ({
     });
   };
   return (
-    <main className="mt-[80px] mb-[50px]">
+    <main className="mt-[80px]" id="blob-statistiche">
       <h1 className="text-center text-title text-4xl">
         <strong>Statistiche</strong>
       </h1>
@@ -59,7 +60,7 @@ const ChartStatistiche = ({
         </ul>
       </section>
       <div className="divider my-5 px-2"></div>
-      <section className="text-justify text-body mx-3 my-5 blob-one">
+      <section className="text-justify text-body mx-5 my-8 blob-one md:w-[80%] md:mx-auto lg:w-[30em] lg:relative lg:left-[20%] 2xl:left-0">
         <p>
           Il form per visualizzare i grafici dell'afflusso turistico o delle
           presenze turistiche in Sardegna è uno strumento che consente di
@@ -82,9 +83,9 @@ const ChartStatistiche = ({
           Sardegna.
         </p>
       </section>
-      <section className="mx-2 text-justify">
+      <section className="mx-5 text-justify">
         <form onSubmit={handleQueryParams} className="w-full h-full">
-          <div className="card shadow-xl bg-neutral h-[450px]">
+          <div className="card shadow-xl h-[450px] bg-[#86a0e7]" id="cardBox-statistiche">
             <select className="select w-[90%] mt-4 mx-auto mt-2">
               <option disabled>Regione</option>
               {regioni &&
@@ -147,12 +148,12 @@ const ChartStatistiche = ({
               </label>
             </div>
             <button className="btn w-[45%] mx-auto btn-primary" type="submit">
-              Cerca
+              Visualizza grafico
             </button>
           </div>
         </form>
       </section>
-      <div className="divider my-9 px-2"></div>
+      <div className="divider mt-5 px-2"></div>
       {resData?.length !== 0 ? (
         resData![0].annoMese.length === 4 ? (
           <ChartBarStatistiche data={resData!} />
@@ -163,24 +164,7 @@ const ChartStatistiche = ({
           ))
         )
       ) : (
-        <div className="alert alert-info shadow-lg w-[90%] mx-auto">
-          <div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="stroke-current flex-shrink-0 w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
-            <span>Fai una ricerca.</span>
-          </div>
-        </div>
+        <ResearchPlaceholderStatistiche />
       )}
     </main>
   );

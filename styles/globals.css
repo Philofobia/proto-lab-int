@@ -7,6 +7,10 @@
 @import url(./regName.module.css);
 /* provName css */
 @import url(./provName.module.css);
+/* statitstics css */
+@import url(./statistiche.module.css);
+/* previsioni css */
+@import url(./previsioni.module.css);
 
 
 body.no-scroll {

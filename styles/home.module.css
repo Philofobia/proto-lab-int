@@ -31,11 +31,11 @@
     background-size: 20em;
     background-position: top 0em left -10em;
   }
-  #blob::before {
+  #blob-home::before {
     width: 80em;
     height: 60em;
   }
-  #blob::after {
+  #blob-home::after {
     width: 50em;
     height: 50em;
     top: 40em;
@@ -75,10 +75,10 @@
 }
 
 @media (min-width: 1280px) {
-  #blob {
+  #blob-home {
     background-size: 43em;
   }
-  #blob::after {
+  #blob-home::after {
     background: url(/images/complex/hand-bars-skyscrapers.svg) no-repeat;
     top: 50em;
     left: 0;
@@ -87,11 +87,11 @@
 }
 
 @media (min-width: 1536px) {
-  #blob {
+  #blob-home {
     background-size: 45em;
     background-position: top 10vh right 2em;
   }
-  #blob::after {
+  #blob-home::after {
     background-size: 35em;
     top: 45em;
     left: -2em;

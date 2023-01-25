@@ -1,17 +1,17 @@
-#cardBox-statistiche::after {
+#cardBox-previsioni::after {
   opacity: 0.18;
   background-color: #86a0e7;
   z-index: 10;
 }
 
-#blob-statistiche {
+#blob-previsioni {
   background: url(/images/blobs/blob-eight.svg) no-repeat;
   background-size: 30em;
   background-position: top 32em left -10em;
   overflow: hidden;
   position: relative;
 }
-#blob-statistiche::before {
+#blob-previsioni::before {
   background: url(/images/blobs/blob-seven.svg) 0 0 no-repeat;
   content: "";
   position: absolute;
@@ -21,7 +21,7 @@
   right: -40em;
   z-index: -1;
 }
-#blob-statistiche::after {
+#blob-previsioni::after {
   background: url(/images/blobs/blob-four.svg) no-repeat;
   content: "";
   position: absolute;
@@ -33,48 +33,48 @@
 }
 
 @media (min-width: 640px) {
-  #blob-statistiche {
+  #blob-previsioni {
     background-size: 35em;
     background-position: top 40em left -10em;
   }
-  #blob-statistiche::before {
+  #blob-previsioni::before {
     width: 70em;
     height: 50em;
     top: -10em;
   }
-  #blob-statistiche::after {
+  #blob-previsioni::after {
     background: transparent;
   }
 }
 
 @media (min-width: 768px) {
-  #blob-statistiche {
+  #blob-previsioni {
     background-size: 50em;
-    background-position: top 30em left -10em;
+    background-position: top 30em left -25em;
   }
-  #blob-statistiche::before {
+  #blob-previsioni::before {
     width: 80em;
     height: 60em;
     top: -15em;
   }
-  #research-statistiche {
+  #research-previsioni {
     background: url(/images/complex/data-analysis.svg) no-repeat;
     background-size: 38em;
-    background-position: top 10em right 0;
+    background-position: top 0em right 0;
   }
 }
 
 @media (min-width: 1024px) {
-  #blob-statistiche {
+  #blob-previsioni {
     background-size: 60em;
     background-position: top 23em left -20em;
   }
-  #blob-statistiche::before {
+  #blob-previsioni::before {
     width: 78em;
     height: 60em;
     top: -15em;
   }
-  #blob-statistiche::after {
+  #blob-previsioni::after {
     background: url(/images/complex/user-interface.svg) no-repeat;
     width: 50em;
     height: 50em;
@@ -83,36 +83,36 @@
     right: auto;
     left: 1em;
   }
-  #research-statistiche {
-    background-size: 50em;
+  #research-previsioni {
+    background-size: 45em;
     background-position: top 0em right -5em;
   }
 }
 
 @media (min-width: 1280px) {
-  #blob-statistiche {
+  #blob-previsioni {
     background-size: 70em;
     background-position: top 23em left -20em;
   }
-  #blob-statistiche::before {
+  #blob-previsioni::before {
     width: 78em;
     height: 60em;
     top: -15em;
   }
-  #blob-statistiche::after {
+  #blob-previsioni::after {
     background-size: 35em;
     top: 8em;
     right: auto;
     left: 5em;
   }
-  #research-statistiche {
-    background-size: 45em;
+  #research-previsioni {
+    background-size: 38em;
     background-position: top 0em right 1em;
   }
 }
 
 @media (min-width: 1536px) {
-    #research-statistiche {
-        background-position: top 0em right 10em;
-      }
+  #research-previsioni {
+    background-position: top 0em right 10em;
+  }
 }

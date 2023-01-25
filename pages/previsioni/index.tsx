@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { DataPrevInt, formParamsInt, RegioneInt } from "../../types/types";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import ChartLine from "../../components/charts/chartLine";
+import ResearchPlaceholderPrevisioni from "../../components/researchPlaceholder/ResearchPlaceholderPrevisioni";
 
 const ChartPrevisioni = ({
   regioni,
@@ -33,7 +34,7 @@ const ChartPrevisioni = ({
   };
 
   return (
-    <main className="mt-[80px] mb-[50px]">
+    <main className="mt-[80px]" id="blob-previsioni">
       <h1 className="text-center text-title text-4xl">
         <strong>Previsioni</strong>
       </h1>
@@ -46,7 +47,7 @@ const ChartPrevisioni = ({
         </ul>
       </div>
       <div className="divider my-5 px-2"></div>
-      <section className="text-justify text-body mx-3 my-5">
+      <section className="text-justify text-body mx-3 my-8 md:w-[80%] md:mx-auto lg:w-[30em] lg:relative lg:left-[20%] 2xl:left-0">
         <p>
           Il form per visualizzare i grafici di andamento delle previsioni delle
           presenze turistiche in Sardegna è uno strumento che consente di
@@ -72,7 +73,7 @@ const ChartPrevisioni = ({
       </section>
       <section className="mx-2 text-justify">
         <form onSubmit={handleQueryParams} className="w-full h-full">
-          <div className="card shadow-xl bg-neutral h-[21em]">
+          <div className="card shadow-xl h-[21em] bg-[#86a0e7]" id="cardBox-previsioni">
             <select className="select w-[90%] mt-4 mx-auto mt-2">
               <option disabled>Regione</option>
               {regioni &&
@@ -110,7 +111,7 @@ const ChartPrevisioni = ({
               className="btn w-[45%] mx-auto btn-primary my-9"
               type="submit"
             >
-              Cerca
+              Visualizza Grafico
             </button>
           </div>
         </form>
@@ -119,24 +120,7 @@ const ChartPrevisioni = ({
       {resData?.length !== 0 ? (
         <ChartLine data={resData!} />
       ) : (
-        <div className="alert alert-info shadow-lg w-[90%] mx-auto">
-          <div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="stroke-current flex-shrink-0 w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
-            <span>Fai una ricerca.</span>
-          </div>
-        </div>
+        <ResearchPlaceholderPrevisioni />
       )}
     </main>
   );
