@@ -181,10 +181,6 @@ Home.getLayout = function PageLayout(page: ReactElement) {
           key="product-jsonld"
         />
 
-        <link rel="canonical" href="index.html" />
-        <link rel="alternate" hrefLang="it" href="index.html" />
-        <link rel="alternate" href="index.html" hrefLang="x-default" />
-
         <meta property="og:type" content="business.business" />
         <meta
           property="og:site_name"

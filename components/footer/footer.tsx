@@ -21,9 +21,9 @@ const Footer = () => {
             Previsioni
           </Link>
         </nav>
-        <a className="flex title-font font-medium items-center md:justify-start justify-center">
+        <p className="flex title-font font-medium items-center md:justify-start justify-center">
           <span className="ml-3 text-xl">Travel Trend</span>
-        </a>
+        </p>
         <nav className="hidden flex title-font font-medium items-center justify-center mx-auto sm:inline-block">
           <Link
             href="/"

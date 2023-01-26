@@ -246,10 +246,6 @@ ChartStatistiche.getLayout = function PageLayout(page: ReactElement) {
           content="width=device-width, initial-scale=1.0, maximum-scale=1"
         />
 
-        <link rel="canonical" href="index.html" />
-        <link rel="alternate" hrefLang="it" href="index.html" />
-        <link rel="alternate" href="index.html" hrefLang="x-default" />
-
         <meta property="og:type" content="business.business" />
         <meta
           property="og:site_name"
