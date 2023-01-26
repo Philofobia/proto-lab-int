@@ -7,7 +7,7 @@ const Header = ({ navigationData }: { navigationData: RegioneInt[] }) => {
   const { navbar, switchNavbar } = NavbarConsumer();
 
   return (
-      <header className="navbar bg-base-100 shadow-xl fixed z-50 top-0 h-12">
+      <header className="navbar bg-base-100 shadow-xl fixed z-50 top-0 h-12 lg:px-5">
         <section className="navbar-start lg:hidden">
           <button className="btn btn-ghost" onClick={switchNavbar}>
             {navbar ? (
@@ -95,7 +95,7 @@ const Header = ({ navigationData }: { navigationData: RegioneInt[] }) => {
         <section className="navbar-center">
           <h2 className="font-title antialiasing text-2xl">TRAVEL TREND</h2>
         </section>
-        <section className="navbar-end">
+        <section className="navbar-end pr-3">
           <ThemeButton />
         </section>
     </header>
