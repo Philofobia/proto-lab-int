@@ -130,10 +130,10 @@ const ChartStatistiche = ({
                 id="annoMese"
                 name="grafici"
                 value="annoMese"
-                className="radio radio-primary mr-2 align-middle"
+                className="radio radio-slate-900 mr-2 align-middle"
                 defaultChecked
               />
-              <label htmlFor="annoMese" className="cursor-pointer text-primary">
+              <label htmlFor="annoMese" className="cursor-pointer text-base-100">
                 Grafici anno & mese
               </label>
               <input
@@ -141,13 +141,13 @@ const ChartStatistiche = ({
                 id="anno"
                 name="grafici"
                 value="anno"
-                className="radio radio-primary mr-2 ml-5 align-middle"
+                className="radio radio-slate-900 mr-2 ml-5 align-middle"
               />
-              <label htmlFor="anno" className="cursor-pointer text-primary">
+              <label htmlFor="anno" className="cursor-pointer text-base-100">
                 Grafici annuali
               </label>
             </div>
-            <button className="btn w-[45%] mx-auto btn-primary" type="submit">
+            <button className="btn w-[45%] mx-auto btn-primary bg-accent hover:bg-primary border-0" type="submit">
               Visualizza grafico
             </button>
           </div>

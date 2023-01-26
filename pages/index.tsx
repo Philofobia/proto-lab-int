@@ -48,7 +48,7 @@ const Home = () => {
               <span className="inline-block py-1 rounded bg-[#86a0e7] text-xs font-medium tracking-widest px-2">
                 STATISTICHE
               </span>
-              <h4 className="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">
+              <h4 className="sm:text-3xl text-2xl title-font font-medium mt-4 mb-4">
                 L'utilizzo delle fonti ufficiali dell'ISTAT per analizzare
                 l'impatto del turismo sull'isola
               </h4>
@@ -90,7 +90,7 @@ const Home = () => {
               <span className="inline-block py-1 rounded bg-[#86a0e7] text-xs font-medium tracking-widest px-2">
                 PREVISIONI
               </span>
-              <h4 className="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">
+              <h4 className="sm:text-3xl text-2xl title-font font-medium mt-4 mb-4">
                 Modelli predittivi avanzati per la pianificazione del turismo in
                 Sardegna
               </h4>

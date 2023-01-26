@@ -4,7 +4,7 @@ const ThemeButton = () => {
   const { theme, switchTheme } = ThemeConsumer();
 
   return (
-    <button className="btn bg-[#86a0e7] hover:bg-[#86a0e7] border-none" onClick={switchTheme}>
+    <button className="btn bg-accent hover:bg-primary border-0 border-none" onClick={switchTheme}>
       {theme === "light" ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +26,7 @@ const ThemeButton = () => {
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
-          stroke="currentColor"
+          stroke="rgb(100 116 139)"
           className="w-6 h-6"
         >
           <path

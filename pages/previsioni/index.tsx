@@ -108,7 +108,7 @@ const ChartPrevisioni = ({
               <option value="WRL_X_ITA">Tutti</option>
             </select>
             <button
-              className="btn w-[45%] mx-auto btn-primary my-9"
+              className="btn w-[45%] mx-auto btn-primary my-9 bg-accent hover:bg-primary border-none"
               type="submit"
             >
               Visualizza Grafico

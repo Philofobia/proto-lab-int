@@ -8,6 +8,7 @@ const ChartBarStatistiche = ({ data }: { data: DataInt[] }) => {
   });
 
   const options: ApexOptions = {
+    colors:['#86A0E7', '#86D0E7'],
     chart: {
       type: "line",
       stacked: false,
@@ -54,7 +55,7 @@ const ChartBarStatistiche = ({ data }: { data: DataInt[] }) => {
   };
 
   return (
-    <section className="h-52 w-full mx-auto lg:w-[60rem] lg:h-[32rem] xl:w-[90rem] xl:h-[40rem]">
+    <section className="h-52 w-[98%] mx-auto lg:w-[60rem] lg:h-[32rem] xl:w-[90rem] xl:h-[40rem] bg-slate-300 border-1 border-solid p-1 mb-5 rounded-xl">
       <ReactApexChart
         options={options}
         series={options.series}
