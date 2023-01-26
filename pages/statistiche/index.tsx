@@ -130,7 +130,7 @@ const ChartStatistiche = ({
                 id="annoMese"
                 name="grafici"
                 value="annoMese"
-                className="radio radio-slate-900 mr-2 align-middle"
+                className="radio radio-accent mr-2 align-middle"
                 defaultChecked
               />
               <label htmlFor="annoMese" className="cursor-pointer text-base-100">
@@ -141,7 +141,7 @@ const ChartStatistiche = ({
                 id="anno"
                 name="grafici"
                 value="anno"
-                className="radio radio-slate-900 mr-2 ml-5 align-middle"
+                className="radio radio-accent mr-2 ml-5 align-middle"
               />
               <label htmlFor="anno" className="cursor-pointer text-base-100">
                 Grafici annuali
