@@ -88,7 +88,7 @@ const ChartBar = ({
   };
 
   return (
-    <section className="h-52 w-[98%] mx-auto lg:w-[60rem] lg:h-[32rem] xl:w-[90rem] xl:h-[40rem] bg-slate-300 border-1 border-solid p-1 mb-5 rounded-xl">
+    <section className="h-52 w-[90%] mx-auto lg:h-[32rem] xl:w-[75rem] xl:h-[40rem] bg-slate-300 border-1 border-solid mb-5 rounded-xl">
       <ReactApexChart
         options={options}
         series={options.series}
